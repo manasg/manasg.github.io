@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://blog.manasg.com/putting-it-all-together/</loc>
+    <lastmod>2017-05-08T21:29:18-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/multi-node-setup-with-test-kitchen/</loc>
+    <lastmod>2017-04-02T09:41:22-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/about/</loc>
+    <lastmod>2017-03-31T21:39:11-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/runbooks-as-code/</loc>
+    <lastmod>2017-03-25T01:13:28-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/achieving-common-ground/</loc>
+    <lastmod>2017-01-05T21:02:03-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/the-devops-engineer/</loc>
+    <lastmod>2016-12-22T21:56:28-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/</loc>
+    <lastmod>2017-05-08T21:29:18-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/page/</loc>
+    <lastmod>2017-03-31T21:39:11-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/post/</loc>
+    <lastmod>2017-05-08T21:29:18-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
