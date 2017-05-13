@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.18" />
+
+
+<title>Putting It All Together - Manas Gupta</title>
+<meta property="og:title" content="Putting It All Together - Manas Gupta">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="http://blog.manasg.com/css/main.css" media="all">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="http://blog.manasg.com/" class="nav-logo">
+    <img src="http://blog.manasg.com/images/logo.jpeg" 
+         width="50" 
+         height="50" 
+         alt="">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">about</a></li>
+    
+    <li><a href="https://github.com/manasg">github</a></li>
+    
+    <li><a href="https://twitter.com/ngrep_q">twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">Putting It All Together</h1>
+
+    
+    <span class="article-date">May 8, 2017</span>
+    
+
+    <div class="article-content">
+      
+
+<p>Documentation tends to focus on &ldquo;how&rdquo; and often misses the &ldquo;why&rdquo;.</p>
+
+<p><a href="https://twitter.com/jpalardy/status/695624241681735680">Jonathan Palardy</a> puts it very well.</p>
+
+<blockquote>
+<p>there’s a README.md in each repo now… but maybe we need a documentary.mp4 instead. Interviews about how the code evolved.</p>
+</blockquote>
+
+<p>At work, I update a collection of essays every few months which explain the &ldquo;why&rdquo; for decisions/projects/technology-choices. This provides a more holistic experience compared to reading various tickets, searching emails and the typical institutional/tribal knowledge.</p>
+
+<p>With that said, I want to do the same for the state of this blog.</p>
+
+<h2 id="content">Content</h2>
+
+<p><a href="https://gohugo.io/">Hugo</a> generates the site using the <a href="https://themes.gohugo.io/hugo-lithium-theme/">Lithium theme</a> from a collection of markdown documents. I use <a href="http://macvim-dev.github.io/macvim/">(mac)vim</a> to write on a Macbook Pro.</p>
+
+<h4 id="why-vim">Why vim?</h4>
+
+<ul>
+<li>I have been using Vim for many years and want to take my skills to the next level</li>
+<li>Vim is everywhere. Any place I SSH to, will most likely have Vim available. If not, then a simple <code>apt-get</code> or <code>yum install</code> will make it available. Compare this to Eclipse or Sublime :)</li>
+</ul>
+
+<h4 id="why-a-static-site-generator">Why a static site generator?</h4>
+
+<ul>
+<li>KISS - Keep It Simple Stupid</li>
+<li>Anything &ldquo;fancy&rdquo; can be done with client side Javascript</li>
+<li>Runs locally, truly WYSIWYG</li>
+<li>I own everything vs exporting from WordPress, Tumblr, BlogSpot etc</li>
+<li>It&rsquo;s a simple personal blog</li>
+</ul>
+
+<h4 id="why-not-jekyll">Why not Jekyll?</h4>
+
+<ul>
+<li>Ruby. Installation is always a pain. You never know which gem is &ldquo;in-vogue&rdquo;</li>
+<li>I work in Ops. I fight installation/configuration for a living, I prefer not to do that when I have an occasional 40 minute slot before I go to bed.</li>
+<li>Hugo comes as a single Go-binary available via Brew</li>
+</ul>
+
+<h4 id="managing-source">Managing Source</h4>
+
+<p>Git, of course :)</p>
+
+<p>I have two repositories:</p>
+
+<ol>
+<li>The markdown of the posts, hugo configs and theme</li>
+<li>Generated website</li>
+</ol>
+
+<p>I keep the generated website in a separate repo as it lets me easily compare changes/do rollbacks. And I could try a new version of Hugo and compare the diffs if any in the resulting code.</p>
+
+<h2 id="hosting-the-content">Hosting the content</h2>
+
+<p>Repository #2 above ends up in a git repo on GitHub, where it is rendered using GitHub Pages.</p>
+
+<h4 id="why-github">Why GitHub?</h4>
+
+<p>I could have used AWS S3 for static content. However GitHub stores my generated source in a repo and renders it at the same time. This is convenient. It&rsquo;s also free!</p>
+
+<h4 id="why-not-run-a-server-on-ec2-or-digital-ocean-or-linode">Why not run a server on EC2 or Digital Ocean or Linode?</h4>
+
+<ul>
+<li><a href="https://security.googleblog.com/2016/02/cve-2015-7547-glibc-getaddrinfo-stack.html">Glibc</a>, <a href="https://dirtycow.ninja/">DirtyCow</a>, <a href="https://imagetragick.com/">ImageTragick</a>, <a href="http://heartbleed.com/">Heartbleed</a>, and <a href="http://resources.infosecinstitute.com/10-security-vulnerabilities-that-broke-the-world-wide-web-in-2016/#gref">so many others</a></li>
+<li>Configuration of a webserver</li>
+<li>SSL certs - <a href="https://letsencrypt.org/">Lets Encrypt</a> makes it easy, but another setup I need to manage. Getting an A/A+ on SSL is always a dark art</li>
+<li>I would have to maintain SSH keys to my server + credentials for the cloud provider</li>
+<li>For a small setup such as a personal blog, a server is an overkill</li>
+<li>What if one day I make HackerNews frontpage :), my little server will suffer a DDOS</li>
+</ul>
+
+<h4 id="aren-t-you-better-off-on-tumblr-wordpress-medium-etc-for-all-these-reasons">Aren&rsquo;t you better off on Tumblr/Wordpress/Medium etc for all these reasons?</h4>
+
+<p>Yes and No. Yes I wouldn&rsquo;t need to worry about &lsquo;server-ops&rsquo; on a blogging platform. But my previous reasons to generate a static site trump everything else. I mostly focus on Operations/Backend work. Having Hugo do all the FrontEnd work is fascinating and it gives me a chance to look at how all the rendering magic happens.</p>
+
+<h2 id="domain-dns-https">Domain, DNS, HTTPs</h2>
+
+<p>Domain was purchased via <a href="https://domains.google.com/registrar">Google Domains</a>. Other registrars are ok, but Google already has my credit card information and their G-suite is phenomenal.</p>
+
+<h4 id="dns">DNS</h4>
+
+<p>Initially I used Google&rsquo;s Nameservers and pointed <code>blog.manasg.com</code> to Github Pages&rsquo; IP addresses. This is the simplest possible setup. However it did not have HTTPs since Github does not support HTTPs on custom domains (as of Spring 2017), but <a href="https://manasg.github.io/">https://manasg.github.io/</a> is available over HTTPs.</p>
+
+<h4 id="going-https">Going HTTPs</h4>
+
+<p>Why HTTPs?</p>
+
+<p><a href="https://istlsfastyet.com/">Everything should run on TLS</a> :)</p>
+
+<p>How?</p>
+
+<p>I really respect and admire the work <a href="https://www.cloudflare.com/">CloudFlare</a> is doing. So they were my first choice over Akamai and other providers.</p>
+
+<ol>
+<li>CloudFlare Nameservers for my domain</li>
+<li><code>blog.manasg.com</code> at DNS level goes to <code>manasg.github.io</code> (also use CloudFlare as a caching proxy)</li>
+<li>http -&gt; https enforcement enabled by using PageRules at CloudFlare</li>
+</ol>
+
+<p>Bonus</p>
+
+<ol>
+<li><code>manasg.com</code> at DNS level goes to <code>blog.manasg.com</code> so that it hits CloudFlare servers</li>
+<li>Page rule sends a HTTP redirect for manasg.com to blog.manasg.com to enforce HTTPs + modify Host Header</li>
+</ol>
+
+<p>For the Naked Domain redirect, I was tempted to use AWS Lambda, but I prefer having my DNS and HTTP-routing rules in one place.</p>
+
+<p>The CloudFlare free account was sufficient for all of the above. Relevant posts</p>
+
+<ul>
+<li><a href="https://blog.cloudflare.com/zone-apex-naked-domain-root-domain-cname-supp/">https://blog.cloudflare.com/zone-apex-naked-domain-root-domain-cname-supp/</a></li>
+<li><a href="https://blog.cloudflare.com/introducing-cname-flattening-rfc-compliant-cnames-at-a-domains-root/">https://blog.cloudflare.com/introducing-cname-flattening-rfc-compliant-cnames-at-a-domains-root/</a></li>
+<li><a href="https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/">https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/</a></li>
+</ul>
+
+<h4 id="why-not-google-firebase-for-https">Why not Google Firebase for HTTPs?</h4>
+
+<p>Requires me to install the toolchain written in Node.js via npm. Sorry.</p>
+
+<h2 id="monitoring">Monitoring</h2>
+
+<p>Pingdom&rsquo;s free account lets me watch uptime for one site.</p>
+
+<h2 id="logging">Logging</h2>
+
+<p>This is tricky, as I can&rsquo;t get plain old HTTP Access logs with my setup. S3 does have an option of storing access logs in a separate bucket.</p>
+
+<p>However, access logs by themselves would not be very helpful for a simple site like mine. The value lies in Analytics.</p>
+
+<ul>
+<li>User Focussed - I use Google Analytics free tier</li>
+<li>Infrastructure - CloudFlare gives excellent breakdown of traffic/threats/cache-hit-miss-ratio etc</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Setting up a site is still fun outside work :)</p>
+
+<p>I took a shortcut for a few things so I could spend time exploring others. There is nothing wrong with platforms like Medium, Wordpress, Tumblr, but I wanted to try something else and did not want to setup up my own server.</p>
+
+    </div>
+  </article>
+
+  
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="http://blog.manasg.com/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="http://blog.manasg.com/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-98684184-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+
