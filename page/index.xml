@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Manas Gupta</title>
+    <link>https://blog.manasg.com/page/index.xml</link>
+    <description>Recent content in Pages on Manas Gupta</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Mar 2017 21:39:11 -0800</lastBuildDate>
+    <atom:link href="https://blog.manasg.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>about</title>
+      <link>https://blog.manasg.com/about/</link>
+      <pubDate>Fri, 31 Mar 2017 21:39:11 -0800</pubDate>
+      
+      <guid>https://blog.manasg.com/about/</guid>
+      <description>&lt;p&gt;My name is Manas Gupta. I am a software engineer helping with Technical Operations at the Yahoo Mail Contacts team in the Bay Area.&lt;/p&gt;
+
+&lt;p&gt;When I am not spending time with my wife and two wonderful daughters, you can find me reading plot summaries for movies/tv-shows. I &lt;a href=&#34;https://bookpiles.ca/manasg/books?pile=reading&#34;&gt;do read&lt;/a&gt; technical books without waiting for the spoilers.&lt;/p&gt;
+
+&lt;p&gt;I have lived in a lot of places, but Montreal (Canada) can be considered home base.&lt;/p&gt;
+
+&lt;p&gt;Need to reach me? &lt;a href=&#34;mailto:hello@manasg.com&#34;&gt;hello@manasg.com&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/ngrep_q&#34;&gt;twitter&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
