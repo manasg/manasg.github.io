@@ -6,8 +6,126 @@
     <description>Recent content in Posts on Manas Gupta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 May 2017 21:29:18 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 26 May 2017 21:58:42 -0700</lastBuildDate>
     <atom:link href="https://blog.manasg.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Monitorama 2017 : My Impressions</title>
+      <link>https://blog.manasg.com/monitorama-2017--my-impressions/</link>
+      <pubDate>Fri, 26 May 2017 21:58:42 -0700</pubDate>
+      
+      <guid>https://blog.manasg.com/monitorama-2017--my-impressions/</guid>
+      <description>
+
+&lt;p&gt;I attended &lt;a href=&#34;http://monitorama.com/&#34;&gt;Monitorama&lt;/a&gt; 2017 in PDX a few days ago. It&amp;rsquo;s a fantastic conference, which anybody running or writing a production service should attend.&lt;/p&gt;
+
+&lt;p&gt;All talks were live streamed and recordings will be available for free. I chose to attend since it let&amp;rsquo;s me give my full attention to the speakers. It also served as a great off-site or an ops person&amp;rsquo;s retreat :). There is something special about &amp;ldquo;being&amp;rdquo; at the venue, relevant chatter and meeting other folks. Also I got to visit Portland, which I loved!&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a single track conference so there is no need to pick and choose which removes any &lt;a href=&#34;https://en.wikipedia.org/wiki/Fear_of_missing_out&#34;&gt;FOMO&lt;/a&gt;. I am going to go over &lt;em&gt;&lt;strong&gt;my&lt;/strong&gt; favorite sessions&lt;/em&gt;. Don&amp;rsquo;t get me wrong, all the speakers/content was amazing, I am listing the ones which resonated with me.&lt;/p&gt;
+
+&lt;p&gt;All talks interleaved various themes but had their areas of focus. I would classify them under&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;practice&lt;/li&gt;
+&lt;li&gt;tools&lt;/li&gt;
+&lt;li&gt;math&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;practice&#34;&gt;Practice&lt;/h2&gt;
+
+&lt;p&gt;This theme covers methodology and processes used by various teams to be effective at monitoring and thus pursue better #opslife. Some of it is anecdotal in nature and some of it falls in the category of general advice. Many companies also presented their &amp;ldquo;Ops&amp;rdquo; stack =&amp;gt; systems used to manage/store metrics, dashboards, logs and alerts.&lt;/p&gt;
+
+&lt;h3 id=&#34;monitoring-in-the-enterprise-by-bryan-liles-https-twitter-com-bryanl&#34;&gt;Monitoring in the Enterprise by &lt;a href=&#34;https://twitter.com/bryanl&#34;&gt;Bryan Liles&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A key takeaway for me was the role of the &amp;ldquo;Enterprise Monitoring Team&amp;rdquo; when you have several small product teams running their production systems. Each team should be responsible for the monitoring and on-call of their products. The Enterprise Monitoring Team should measure&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;contracts&amp;rdquo; between services (example - team A using team B&amp;rsquo;s micro-service)&lt;/li&gt;
+&lt;li&gt;the whole organization&amp;rsquo;s Service Level Agreement/Objectives&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &amp;ldquo;Enterprise&amp;rdquo; team should also research and suggest best practices for monitoring.&lt;/p&gt;
+
+&lt;p&gt;Product teams should build &amp;ldquo;observability&amp;rdquo; in their product from the beginning. Instead of returning a blank 200 OK for a health check, &lt;a href=&#34;https://twitter.com/bridgetkromhout/status/866725628778733568/photo/1&#34;&gt;add more context&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Bryan&amp;rsquo;s talk was entertaining and spot on. I have had experience with Ops teams at small, medium and big corporations and he hit the nail on the head.&lt;/p&gt;
+
+&lt;h3 id=&#34;state-of-on-call-2017-edition&#34;&gt;State of On-Call 2017 Edition&lt;/h3&gt;
+
+&lt;p&gt;There were several talks about improving the experience of On-Call Engineers. This covered alerting methodologies, fatigue, burn-out, as well as should devs be on call? (The answer is mostly yes)&lt;/p&gt;
+
+&lt;p&gt;My favorite talk on this topic was &amp;ldquo;Martyrs on Film: Learning to hate the #oncallselfie&amp;rdquo; by &lt;a href=&#34;https://twitter.com/alicegoldfuss&#34;&gt;Alice Goldfuss&lt;/a&gt;. Often Ops Engineers like to be &amp;ldquo;the hero who saved the day&amp;rdquo;, this is bad (even if it feels good at first). Alice&amp;rsquo;s delivery was fantastic and her experience really resonated with the phase of my life when I pulled all-nighters regularly and used to believe that &amp;ldquo;this is normal&amp;rdquo;.&lt;/p&gt;
+
+&lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s always tempting to hope for the one tool which will solve everything, BUT &amp;lt;&amp;lt;insert other tool cliches here&amp;gt;&amp;gt; :) There were numerous tools/vendors/sponsors on-site. Rest-assured monitoring is still not a solved problem :)&lt;/p&gt;
+
+&lt;h3 id=&#34;distributed-tracing&#34;&gt;Distributed Tracing&lt;/h3&gt;
+
+&lt;p&gt;My current team uses the idea of passing a request-id all the way down to the stack starting from the client. This lets us trace calls as they traverse the stack as well as other services not owned by us.&lt;/p&gt;
+
+&lt;p&gt;There were two talks which took this to the next level using &lt;a href=&#34;http://opentracing.io/&#34;&gt;open standards&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Distributed Tracing: How We Got Here and Where We&amp;rsquo;re Going&amp;rdquo; by &lt;a href=&#34;https://twitter.com/el_bhs&#34;&gt;Ben Sigelman&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Distributed Tracing at Uber Scale: Creating a Treasure Map for your Monitoring Data&amp;rdquo; by &lt;a href=&#34;https://twitter.com/YuriShkuro&#34;&gt;Yuri Shkuro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how it looks &lt;em&gt;&lt;a href=&#34;https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941&#34;&gt;src&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.manasg.com/images/posts/2017-05-26-jaegar.png&#34; height=&#34;300px&#34; width=&#34;500px&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;I loved Yuri&amp;rsquo;s talk since he also covers the issues of getting other teams to implement changes in code base to enable tracing.&lt;/p&gt;
+
+&lt;h3 id=&#34;other-notable-mentions&#34;&gt;Other notable mentions :)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Real-time packet analysis at scale by &lt;a href=&#34;https://twitter.com/dcreager&#34;&gt;Douglas Creager&lt;/a&gt;. A technique used by Google to look for &lt;a href=&#34;https://en.wikipedia.org/wiki/Bufferbloat&#34;&gt;Bufferbloat&lt;/a&gt;. They capture network packet headers in real time and analyse behaviour at the edge of Google data centers and the Internet. By capturing just the headers, they can safely work with encrypted traffic.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Kubernetes-defined Monitoring by Gianluca Borello. Covered techniques and patterns to improve monitoring in the land of Kubernetes and containers. From naming convention to tools to make life easier. &lt;a href=&#34;http://www.sysdig.org/&#34;&gt;SysDig&lt;/a&gt; was the tool of choice - relies heavily on Linux Kernel Syscall instrumentation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
+
+&lt;h3 id=&#34;the-tidyverse-and-the-future-of-the-monitoring-toolchain-by-john-rauser-https-twitter-com-jrauser&#34;&gt;The Tidyverse and the Future of the Monitoring Toolchain by &lt;a href=&#34;https://twitter.com/jrauser&#34;&gt;John Rauser&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;The session floated the idea of borrowing a data scientist&amp;rsquo;s rich toolchain into the land of operational monitoring. The tools in question were &lt;a href=&#34;http://ggplot2.org/&#34;&gt;ggplot&lt;/a&gt;, &lt;a href=&#34;https://www.r-project.org/about.html&#34;&gt;R&lt;/a&gt; and the &lt;a href=&#34;http://tidyverse.org/&#34;&gt;Tidyverse&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have had some exposure to the power of R and ggplot due to the work of &lt;a href=&#34;http://blog.jpalardy.com/&#34;&gt;Jonathan Palardy&lt;/a&gt; at Yahoo. One of the teams use it to assess the impact of a new deployment on an existing cluster.&lt;/p&gt;
+
+&lt;p&gt;I plan to learn R to explore the myriad of metrics we get and once we have the right metric, use it for dashboards and/or alerts.&lt;/p&gt;
+
+&lt;h3 id=&#34;instrumenting-smarttvs-and-smartphones-in-the-netflix-app-for-modeling-the-internet-by-guy-cirino-https-twitter-com-gcirino42&#34;&gt;Instrumenting SmartTVs and Smartphones in the Netflix app for modeling the Internet by &lt;a href=&#34;https://twitter.com/gcirino42&#34;&gt;Guy Cirino&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;To plan global rollouts of the Netflix platform, they put instrumentation in the app running on SmartTVs and Phones around the world. This enabled them to measure internet &amp;ldquo;health&amp;rdquo; as seen by a &amp;ldquo;real&amp;rdquo; client.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Data &amp;gt; Opinion&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;By having real data, they were able to make more informed decisions vs relying on opinions of various teams.&lt;/p&gt;
+
+&lt;p&gt;The session covered some cool statistical tricks (Inverse of Empirical Cumulative Distribution Functions!) used to store and encode metrics before transmitting them back to Netflix. This allowed calculation of p90 latency timings for DNS (for example) of various ISPs outside US without storing and transmitting the full dataset. Guy promised to put a working example on his blog to make the math easy to follow ;)&lt;/p&gt;
+
+&lt;h3 id=&#34;automating-dashboard-displays-with-asap-by-kexin-rong-https-kexinrong-github-io-experience&#34;&gt;Automating Dashboard Displays with ASAP by &lt;a href=&#34;https://kexinrong.github.io/experience/&#34;&gt;Kexin Rong&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Another great talk focusing on statistics and time series visualization backed with solid math. It showcases research on smoothing graphs to make them less noisy while retaining large-scale deviations. It&amp;rsquo;s available as a Javascript library!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.manasg.com/images/posts/2017-05-26-plot1.png&#34; height=&#34;300px&#34; width=&#34;500px&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.manasg.com/images/posts/2017-05-26-plot2.png&#34; height=&#34;300px&#34; width=&#34;500px&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;The smoothed data lets you pin-point the dip easily.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a &lt;a href=&#34;http://futuredata.stanford.edu/asap/&#34;&gt;live demo&lt;/a&gt;. Great concept! Looking forward to having this integrated with major graphing players.&lt;/p&gt;
+
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;Monitorama was great - single track format is perfect and all around great quality of speakers and content. It&amp;rsquo;s becoming common practice to have a slack channel at such events and its such a great resource. The team behind Monitorama were spectacular. Day 2 witnessed a &lt;a href=&#34;https://patch.com/oregon/portland/pacific-power-outage-affects-2-400-portlanders&#34;&gt;power outage&lt;/a&gt; which took out core downtown. Starting Monday evening, the team was able to find a new venue and move 600 people + AV equipment + coffee to the new location in less than 12 hours. #opslife indeed!&lt;/p&gt;
+
+&lt;p&gt;The conference provided very comprehensive coverage on monitoring - hard math, culture, on-call, tools and methodology.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Putting It All Together</title>
