@@ -2,12 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Manas Gupta</title>
-    <link>https://blog.manasg.com/index.xml</link>
+    <link>https://blog.manasg.com/</link>
     <description>Recent content on Manas Gupta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 May 2017 21:58:42 -0700</lastBuildDate>
-    <atom:link href="https://blog.manasg.com/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://blog.manasg.com/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Monitorama 2017 : My Impressions</title>
@@ -15,116 +17,8 @@
       <pubDate>Fri, 26 May 2017 21:58:42 -0700</pubDate>
       
       <guid>https://blog.manasg.com/monitorama-2017--my-impressions/</guid>
-      <description>
-
-&lt;p&gt;I attended &lt;a href=&#34;http://monitorama.com/&#34;&gt;Monitorama&lt;/a&gt; 2017 in PDX a few days ago. It&amp;rsquo;s a fantastic conference, which anybody running or writing a production service should attend.&lt;/p&gt;
-
-&lt;p&gt;All talks were live streamed and recordings are available - &lt;a href=&#34;https://www.youtube.com/watch?v=P8dc-rLnLr0&#34;&gt;day1&lt;/a&gt;, &lt;a href=&#34;https://www.youtube.com/watch?v=wnjCNBfH3kg&#34;&gt;day2&lt;/a&gt; and &lt;a href=&#34;https://www.youtube.com/watch?v=o_8EsyFWal0&#34;&gt;day3&lt;/a&gt;. I chose to attend since it let&amp;rsquo;s me give my full attention to the speakers. It also served as a great off-site or an ops person&amp;rsquo;s retreat :). There is something special about &amp;ldquo;being&amp;rdquo; at the venue, relevant chatter and meeting other folks. Also I got to visit Portland, which I loved!&lt;/p&gt;
-
-&lt;p&gt;It&amp;rsquo;s a single track conference so there is no need to pick and choose which removes any &lt;a href=&#34;https://en.wikipedia.org/wiki/Fear_of_missing_out&#34;&gt;FOMO&lt;/a&gt;. I am going to go over &lt;em&gt;&lt;strong&gt;my&lt;/strong&gt; favorite sessions&lt;/em&gt;. Don&amp;rsquo;t get me wrong, all the speakers/content was amazing, I am listing the ones which resonated with me.&lt;/p&gt;
-
-&lt;p&gt;All talks interleaved various themes but had their areas of focus. I would classify them under&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;practice&lt;/li&gt;
-&lt;li&gt;tools&lt;/li&gt;
-&lt;li&gt;math&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;practice&#34;&gt;Practice&lt;/h2&gt;
-
-&lt;p&gt;This theme covers methodology and processes used by various teams to be effective at monitoring and thus pursue better #opslife. Some of it is anecdotal in nature and some of it falls in the category of general advice. Many companies also presented their &amp;ldquo;Ops&amp;rdquo; stack =&amp;gt; systems used to manage/store metrics, dashboards, logs and alerts.&lt;/p&gt;
-
-&lt;h3 id=&#34;monitoring-in-the-enterprise-by-bryan-liles-https-twitter-com-bryanl&#34;&gt;Monitoring in the Enterprise by &lt;a href=&#34;https://twitter.com/bryanl&#34;&gt;Bryan Liles&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;A key takeaway for me was the role of the &amp;ldquo;Enterprise Monitoring Team&amp;rdquo; when you have several small product teams running their production systems. Each team should be responsible for the monitoring and on-call of their products. The Enterprise Monitoring Team should measure&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;contracts&amp;rdquo; between services (example - team A using team B&amp;rsquo;s micro-service)&lt;/li&gt;
-&lt;li&gt;the whole organization&amp;rsquo;s Service Level Agreement/Objectives&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The &amp;ldquo;Enterprise&amp;rdquo; team should also research and suggest best practices for monitoring.&lt;/p&gt;
-
-&lt;p&gt;Product teams should build &amp;ldquo;observability&amp;rdquo; in their product from the beginning. Instead of returning a blank 200 OK for a health check, &lt;a href=&#34;https://twitter.com/bridgetkromhout/status/866725628778733568/photo/1&#34;&gt;add more context&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Bryan&amp;rsquo;s talk was entertaining and spot on. I have had experience with Ops teams at small, medium and big corporations and he hit the nail on the head.&lt;/p&gt;
-
-&lt;h3 id=&#34;state-of-on-call-2017-edition&#34;&gt;State of On-Call 2017 Edition&lt;/h3&gt;
-
-&lt;p&gt;There were several talks about improving the experience of On-Call Engineers. This covered alerting methodologies, fatigue, burn-out, as well as should devs be on call? (The answer is mostly yes)&lt;/p&gt;
-
-&lt;p&gt;My favorite talk on this topic was &amp;ldquo;Martyrs on Film: Learning to hate the #oncallselfie&amp;rdquo; by &lt;a href=&#34;https://twitter.com/alicegoldfuss&#34;&gt;Alice Goldfuss&lt;/a&gt;. Often Ops Engineers like to be &amp;ldquo;the hero who saved the day&amp;rdquo;, this is bad (even if it feels good at first). Alice&amp;rsquo;s delivery was fantastic and her experience really resonated with the phase of my life when I pulled all-nighters regularly and used to believe that &amp;ldquo;this is normal&amp;rdquo;.&lt;/p&gt;
-
-&lt;h2 id=&#34;tools&#34;&gt;Tools&lt;/h2&gt;
-
-&lt;p&gt;It&amp;rsquo;s always tempting to hope for the one tool which will solve everything, BUT &amp;lt;&amp;lt;insert other tool cliches here&amp;gt;&amp;gt; :) There were numerous tools/vendors/sponsors on-site. Rest-assured monitoring is still not a solved problem :)&lt;/p&gt;
-
-&lt;h3 id=&#34;distributed-tracing&#34;&gt;Distributed Tracing&lt;/h3&gt;
-
-&lt;p&gt;My current team uses the idea of passing a request-id all the way down to the stack starting from the client. This lets us trace calls as they traverse the stack as well as other services not owned by us.&lt;/p&gt;
-
-&lt;p&gt;There were two talks which took this to the next level using &lt;a href=&#34;http://opentracing.io/&#34;&gt;open standards&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;Distributed Tracing: How We Got Here and Where We&amp;rsquo;re Going&amp;rdquo; by &lt;a href=&#34;https://twitter.com/el_bhs&#34;&gt;Ben Sigelman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Distributed Tracing at Uber Scale: Creating a Treasure Map for your Monitoring Data&amp;rdquo; by &lt;a href=&#34;https://twitter.com/YuriShkuro&#34;&gt;Yuri Shkuro&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Here&amp;rsquo;s how it looks &lt;em&gt;&lt;a href=&#34;https://medium.com/opentracing/take-opentracing-for-a-hotrod-ride-f6e3141f7941&#34;&gt;src&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.manasg.com/images/posts/2017-05-26-jaegar.png&#34; height=&#34;300px&#34; width=&#34;500px&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;I loved Yuri&amp;rsquo;s talk since he also covers the issues of getting other teams to implement changes in code base to enable tracing.&lt;/p&gt;
-
-&lt;h3 id=&#34;other-notable-mentions&#34;&gt;Other notable mentions :)&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Real-time packet analysis at scale by &lt;a href=&#34;https://twitter.com/dcreager&#34;&gt;Douglas Creager&lt;/a&gt;. A technique used by Google to look for &lt;a href=&#34;https://en.wikipedia.org/wiki/Bufferbloat&#34;&gt;Bufferbloat&lt;/a&gt;. They capture network packet headers in real time and analyse behaviour at the edge of Google data centers and the Internet. By capturing just the headers, they can safely work with encrypted traffic.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Kubernetes-defined Monitoring by Gianluca Borello. Covered techniques and patterns to improve monitoring in the land of Kubernetes and containers. From naming convention to tools to make life easier. &lt;a href=&#34;http://www.sysdig.org/&#34;&gt;SysDig&lt;/a&gt; was the tool of choice - relies heavily on Linux Kernel Syscall instrumentation.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
-
-&lt;h3 id=&#34;the-tidyverse-and-the-future-of-the-monitoring-toolchain-by-john-rauser-https-twitter-com-jrauser&#34;&gt;The Tidyverse and the Future of the Monitoring Toolchain by &lt;a href=&#34;https://twitter.com/jrauser&#34;&gt;John Rauser&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;The session floated the idea of borrowing a data scientist&amp;rsquo;s rich toolchain into the land of operational monitoring. The tools in question were &lt;a href=&#34;http://ggplot2.org/&#34;&gt;ggplot&lt;/a&gt;, &lt;a href=&#34;https://www.r-project.org/about.html&#34;&gt;R&lt;/a&gt; and the &lt;a href=&#34;http://tidyverse.org/&#34;&gt;Tidyverse&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I have had some exposure to the power of R and ggplot due to the work of &lt;a href=&#34;http://blog.jpalardy.com/&#34;&gt;Jonathan Palardy&lt;/a&gt; at Yahoo. One of the teams use it to assess the impact of a new deployment on an existing cluster.&lt;/p&gt;
-
-&lt;p&gt;I plan to learn R to explore the myriad of metrics we get and once we have the right metric, use it for dashboards and/or alerts.&lt;/p&gt;
-
-&lt;h3 id=&#34;instrumenting-smarttvs-and-smartphones-in-the-netflix-app-for-modeling-the-internet-by-guy-cirino-https-twitter-com-gcirino42&#34;&gt;Instrumenting SmartTVs and Smartphones in the Netflix app for modeling the Internet by &lt;a href=&#34;https://twitter.com/gcirino42&#34;&gt;Guy Cirino&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;To plan global rollouts of the Netflix platform, they put instrumentation in the app running on SmartTVs and Phones around the world. This enabled them to measure internet &amp;ldquo;health&amp;rdquo; as seen by a &amp;ldquo;real&amp;rdquo; client.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Data &amp;gt; Opinion&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;By having real data, they were able to make more informed decisions vs relying on opinions of various teams.&lt;/p&gt;
-
-&lt;p&gt;The session covered some cool statistical tricks (Inverse of Empirical Cumulative Distribution Functions!) used to store and encode metrics before transmitting them back to Netflix. This allowed calculation of p90 latency timings for DNS (for example) of various ISPs outside US without storing and transmitting the full dataset. Guy promised to put a working example on his blog to make the math easy to follow ;)&lt;/p&gt;
-
-&lt;h3 id=&#34;automating-dashboard-displays-with-asap-by-kexin-rong-https-kexinrong-github-io-experience&#34;&gt;Automating Dashboard Displays with ASAP by &lt;a href=&#34;https://kexinrong.github.io/experience/&#34;&gt;Kexin Rong&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Another great talk focusing on statistics and time series visualization backed with solid math. It showcases research on smoothing graphs to make them less noisy while retaining large-scale deviations. It&amp;rsquo;s available as a Javascript library!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.manasg.com/images/posts/2017-05-26-plot1.png&#34; height=&#34;300px&#34; width=&#34;500px&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.manasg.com/images/posts/2017-05-26-plot2.png&#34; height=&#34;300px&#34; width=&#34;500px&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;The smoothed data lets you pin-point the dip easily.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s a &lt;a href=&#34;http://futuredata.stanford.edu/asap/&#34;&gt;live demo&lt;/a&gt;. Great concept! Looking forward to having this integrated with major graphing players.&lt;/p&gt;
-
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;Monitorama was great - single track format is perfect and all around great quality of speakers and content. It&amp;rsquo;s becoming common practice to have a slack channel at such events and its such a great resource. The team behind Monitorama were spectacular. Day 2 witnessed a &lt;a href=&#34;https://patch.com/oregon/portland/pacific-power-outage-affects-2-400-portlanders&#34;&gt;power outage&lt;/a&gt; which took out core downtown. Starting Monday evening, the team was able to find a new venue and move 600 people + AV equipment + coffee to the new location in less than 12 hours. #opslife indeed!&lt;/p&gt;
-
-&lt;p&gt;The conference provided very comprehensive coverage on monitoring - hard math, culture, on-call, tools and methodology.&lt;/p&gt;
-</description>
+      <description>I attended Monitorama 2017 in PDX a few days ago. It&amp;rsquo;s a fantastic conference, which anybody running or writing a production service should attend.
+All talks were live streamed and recordings are available - day1, day2 and day3. I chose to attend since it let&amp;rsquo;s me give my full attention to the speakers. It also served as a great off-site or an ops person&amp;rsquo;s retreat :). There is something special about &amp;ldquo;being&amp;rdquo; at the venue, relevant chatter and meeting other folks.</description>
     </item>
     
     <item>
@@ -133,151 +27,10 @@
       <pubDate>Mon, 08 May 2017 21:29:18 -0700</pubDate>
       
       <guid>https://blog.manasg.com/putting-it-all-together/</guid>
-      <description>
-
-&lt;p&gt;Documentation tends to focus on &amp;ldquo;how&amp;rdquo; and often misses the &amp;ldquo;why&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/jpalardy/status/695624241681735680&#34;&gt;Jonathan Palardy&lt;/a&gt; puts it very well.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;there’s a README.md in each repo now… but maybe we need a documentary.mp4 instead. Interviews about how the code evolved.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;At work, I update a collection of essays every few months which explain the &amp;ldquo;why&amp;rdquo; for decisions/projects/technology-choices. This provides a more holistic experience compared to reading various tickets, searching emails and the typical institutional/tribal knowledge.&lt;/p&gt;
-
-&lt;p&gt;With that said, I want to do the same for the state of this blog.&lt;/p&gt;
-
-&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; generates the site using the &lt;a href=&#34;https://themes.gohugo.io/hugo-lithium-theme/&#34;&gt;Lithium theme&lt;/a&gt; from a collection of markdown documents. I use &lt;a href=&#34;http://macvim-dev.github.io/macvim/&#34;&gt;(mac)vim&lt;/a&gt; to write on a Macbook Pro.&lt;/p&gt;
-
-&lt;h4 id=&#34;why-vim&#34;&gt;Why vim?&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;I have been using Vim for many years and want to take my skills to the next level&lt;/li&gt;
-&lt;li&gt;Vim is everywhere. Any place I SSH to, will most likely have Vim available. If not, then a simple &lt;code&gt;apt-get&lt;/code&gt; or &lt;code&gt;yum install&lt;/code&gt; will make it available. Compare this to Eclipse or Sublime :)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;why-a-static-site-generator&#34;&gt;Why a static site generator?&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;KISS - Keep It Simple Stupid&lt;/li&gt;
-&lt;li&gt;Anything &amp;ldquo;fancy&amp;rdquo; can be done with client side Javascript&lt;/li&gt;
-&lt;li&gt;Runs locally, truly WYSIWYG&lt;/li&gt;
-&lt;li&gt;I own everything vs exporting from WordPress, Tumblr, BlogSpot etc&lt;/li&gt;
-&lt;li&gt;It&amp;rsquo;s a simple personal blog&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;why-not-jekyll&#34;&gt;Why not Jekyll?&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ruby. Installation is always a pain. You never know which gem is &amp;ldquo;in-vogue&amp;rdquo;&lt;/li&gt;
-&lt;li&gt;I work in Ops. I fight installation/configuration for a living, I prefer not to do that when I have an occasional 40 minute slot before I go to bed.&lt;/li&gt;
-&lt;li&gt;Hugo comes as a single Go-binary available via Brew&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;managing-source&#34;&gt;Managing Source&lt;/h4&gt;
-
-&lt;p&gt;Git, of course :)&lt;/p&gt;
-
-&lt;p&gt;I have two repositories:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The markdown of the posts, hugo configs and theme&lt;/li&gt;
-&lt;li&gt;Generated website&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I keep the generated website in a separate repo as it lets me easily compare changes/do rollbacks. And I could try a new version of Hugo and compare the diffs if any in the resulting code.&lt;/p&gt;
-
-&lt;h2 id=&#34;hosting-the-content&#34;&gt;Hosting the content&lt;/h2&gt;
-
-&lt;p&gt;Repository #2 above ends up in a git repo on GitHub, where it is rendered using GitHub Pages.&lt;/p&gt;
-
-&lt;h4 id=&#34;why-github&#34;&gt;Why GitHub?&lt;/h4&gt;
-
-&lt;p&gt;I could have used AWS S3 for static content. However GitHub stores my generated source in a repo and renders it at the same time. This is convenient. It&amp;rsquo;s also free!&lt;/p&gt;
-
-&lt;h4 id=&#34;why-not-run-a-server-on-ec2-or-digital-ocean-or-linode&#34;&gt;Why not run a server on EC2 or Digital Ocean or Linode?&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://security.googleblog.com/2016/02/cve-2015-7547-glibc-getaddrinfo-stack.html&#34;&gt;Glibc&lt;/a&gt;, &lt;a href=&#34;https://dirtycow.ninja/&#34;&gt;DirtyCow&lt;/a&gt;, &lt;a href=&#34;https://imagetragick.com/&#34;&gt;ImageTragick&lt;/a&gt;, &lt;a href=&#34;http://heartbleed.com/&#34;&gt;Heartbleed&lt;/a&gt;, and &lt;a href=&#34;http://resources.infosecinstitute.com/10-security-vulnerabilities-that-broke-the-world-wide-web-in-2016/#gref&#34;&gt;so many others&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Configuration of a webserver&lt;/li&gt;
-&lt;li&gt;SSL certs - &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Lets Encrypt&lt;/a&gt; makes it easy, but another setup I need to manage. Getting an A/A+ on SSL is always a dark art&lt;/li&gt;
-&lt;li&gt;I would have to maintain SSH keys to my server + credentials for the cloud provider&lt;/li&gt;
-&lt;li&gt;For a small setup such as a personal blog, a server is an overkill&lt;/li&gt;
-&lt;li&gt;What if one day I make HackerNews frontpage :), my little server will suffer a DDOS&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;aren-t-you-better-off-on-tumblr-wordpress-medium-etc-for-all-these-reasons&#34;&gt;Aren&amp;rsquo;t you better off on Tumblr/Wordpress/Medium etc for all these reasons?&lt;/h4&gt;
-
-&lt;p&gt;Yes and No. Yes I wouldn&amp;rsquo;t need to worry about &amp;lsquo;server-ops&amp;rsquo; on a blogging platform. But my previous reasons to generate a static site trump everything else. I mostly focus on Operations/Backend work. Having Hugo do all the FrontEnd work is fascinating and it gives me a chance to look at how all the rendering magic happens.&lt;/p&gt;
-
-&lt;h2 id=&#34;domain-dns-https&#34;&gt;Domain, DNS, HTTPs&lt;/h2&gt;
-
-&lt;p&gt;Domain was purchased via &lt;a href=&#34;https://domains.google.com/registrar&#34;&gt;Google Domains&lt;/a&gt;. Other registrars are ok, but Google already has my credit card information and their G-suite is phenomenal.&lt;/p&gt;
-
-&lt;h4 id=&#34;dns&#34;&gt;DNS&lt;/h4&gt;
-
-&lt;p&gt;Initially I used Google&amp;rsquo;s Nameservers and pointed &lt;code&gt;blog.manasg.com&lt;/code&gt; to Github Pages&amp;rsquo; IP addresses. This is the simplest possible setup. However it did not have HTTPs since Github does not support HTTPs on custom domains (as of Spring 2017), but &lt;a href=&#34;https://manasg.github.io/&#34;&gt;https://manasg.github.io/&lt;/a&gt; is available over HTTPs.&lt;/p&gt;
-
-&lt;h4 id=&#34;going-https&#34;&gt;Going HTTPs&lt;/h4&gt;
-
-&lt;p&gt;Why HTTPs?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://istlsfastyet.com/&#34;&gt;Everything should run on TLS&lt;/a&gt; :)&lt;/p&gt;
-
-&lt;p&gt;How?&lt;/p&gt;
-
-&lt;p&gt;I really respect and admire the work &lt;a href=&#34;https://www.cloudflare.com/&#34;&gt;CloudFlare&lt;/a&gt; is doing. So they were my first choice over Akamai and other providers.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;CloudFlare Nameservers for my domain&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;blog.manasg.com&lt;/code&gt; at DNS level goes to &lt;code&gt;manasg.github.io&lt;/code&gt; (also use CloudFlare as a caching proxy)&lt;/li&gt;
-&lt;li&gt;http -&amp;gt; https enforcement enabled by using PageRules at CloudFlare&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Bonus&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;manasg.com&lt;/code&gt; at DNS level goes to &lt;code&gt;blog.manasg.com&lt;/code&gt; so that it hits CloudFlare servers&lt;/li&gt;
-&lt;li&gt;Page rule sends a HTTP redirect for manasg.com to blog.manasg.com to enforce HTTPs + modify Host Header&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;For the Naked Domain redirect, I was tempted to use AWS Lambda, but I prefer having my DNS and HTTP-routing rules in one place.&lt;/p&gt;
-
-&lt;p&gt;The CloudFlare free account was sufficient for all of the above. Relevant posts&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.cloudflare.com/zone-apex-naked-domain-root-domain-cname-supp/&#34;&gt;https://blog.cloudflare.com/zone-apex-naked-domain-root-domain-cname-supp/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.cloudflare.com/introducing-cname-flattening-rfc-compliant-cnames-at-a-domains-root/&#34;&gt;https://blog.cloudflare.com/introducing-cname-flattening-rfc-compliant-cnames-at-a-domains-root/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/&#34;&gt;https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;why-not-google-firebase-for-https&#34;&gt;Why not Google Firebase for HTTPs?&lt;/h4&gt;
-
-&lt;p&gt;Requires me to install the toolchain written in Node.js via npm. Sorry.&lt;/p&gt;
-
-&lt;h2 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h2&gt;
-
-&lt;p&gt;Pingdom&amp;rsquo;s free account lets me watch uptime for one site.&lt;/p&gt;
-
-&lt;h2 id=&#34;logging&#34;&gt;Logging&lt;/h2&gt;
-
-&lt;p&gt;This is tricky, as I can&amp;rsquo;t get plain old HTTP Access logs with my setup. S3 does have an option of storing access logs in a separate bucket.&lt;/p&gt;
-
-&lt;p&gt;However, access logs by themselves would not be very helpful for a simple site like mine. The value lies in Analytics.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;User Focussed - I use Google Analytics free tier&lt;/li&gt;
-&lt;li&gt;Infrastructure - CloudFlare gives excellent breakdown of traffic/threats/cache-hit-miss-ratio etc&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Setting up a site is still fun outside work :)&lt;/p&gt;
-
-&lt;p&gt;I took a shortcut for a few things so I could spend time exploring others. There is nothing wrong with platforms like Medium, Wordpress, Tumblr, but I wanted to try something else and did not want to setup up my own server.&lt;/p&gt;
-</description>
+      <description>Documentation tends to focus on &amp;ldquo;how&amp;rdquo; and often misses the &amp;ldquo;why&amp;rdquo;.
+Jonathan Palardy puts it very well.
+ there’s a README.md in each repo now… but maybe we need a documentary.mp4 instead. Interviews about how the code evolved.
+ At work, I update a collection of essays every few months which explain the &amp;ldquo;why&amp;rdquo; for decisions/projects/technology-choices. This provides a more holistic experience compared to reading various tickets, searching emails and the typical institutional/tribal knowledge.</description>
     </item>
     
     <item>
@@ -286,70 +39,10 @@
       <pubDate>Sun, 02 Apr 2017 09:41:22 -0700</pubDate>
       
       <guid>https://blog.manasg.com/multi-node-setup-with-test-kitchen/</guid>
-      <description>
-
-&lt;h2 id=&#34;what-s-test-kitchen&#34;&gt;What&amp;rsquo;s test kitchen?&lt;/h2&gt;
-
-&lt;p&gt;From &lt;a href=&#34;http://kitchen.ci/&#34;&gt;Test Kitchen&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It is designed to execute isolated code run in pristine environments ensuring that no prior state exists.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It hooks with &lt;a href=&#34;https://www.chef.io/&#34;&gt;Chef&lt;/a&gt; really well and provides integration testing for infrastructure code and is a great tool for developing &lt;a href=&#34;https://blog.manasg.com/runbooks-as-code&#34;&gt;runbooks as code&lt;/a&gt;. You can use it with Vagrant/EC2/Docker to provide the underlying &amp;lsquo;server environments&amp;rsquo;.&lt;/p&gt;
-
-&lt;h2 id=&#34;why-use-it&#34;&gt;Why use it?&lt;/h2&gt;
-
-&lt;p&gt;I returned to Nagios after many years and wanted to get it up and running locally. Times have changed since I last used Nagios, now we have things like Chef and Vagrant which help with rapid iterations and prototyping. Messed up the server, no worries, kill and re-create within a minute, all locally on my Macbook.&lt;/p&gt;
-
-&lt;p&gt;Virtual Machine snapshots can achieve some of these results, but it&amp;rsquo;s not the real deal :) For example if you need to test a certain script on a server booting for the first time, test-kitchen is a better tool.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-setup&#34;&gt;The Setup&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/manasg/cookbook-mg_nagios&#34;&gt;Here&amp;rsquo;s a chef cookbook&lt;/a&gt; to setup three separate virtual machines. The test-kitchen specific config lives in &lt;a href=&#34;https://github.com/manasg/cookbook-mg_nagios/blob/master/.kitchen.yml&#34;&gt;.kitchen.yml&lt;/a&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Nagios Server&lt;/li&gt;
-&lt;li&gt;Candidate1 to be monitored&lt;/li&gt;
-&lt;li&gt;Candidate2 to be monitored&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I am able to simulate bad configuration, packet drops, server reboots and observe how Nagios reacts.&lt;/p&gt;
-
-&lt;p&gt;Usually you would get a list of servers to be monitored by querying Chef Server. By authoring your cookbook with proper attribute overrides you can enable local testing.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# set use_nodes_in_attrib true in .kitchen.yml
-
-if node[&#39;use_nodes_in_attrib&#39;]
-  nodes = node[&#39;list_of_nodes&#39;]
-else
-  nodes = search(:node, query)
-end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;instances-vs-nodes&#34;&gt;Instances vs Nodes&lt;/h2&gt;
-
-&lt;p&gt;Another common technique to simulate multiple nodes is by using instances. You could run two instances of &lt;a href=&#34;https://github.com/chef-cookbooks/memcached#examples&#34;&gt;memcache&lt;/a&gt; on the &lt;em&gt;same&lt;/em&gt; node. This is really advantageous when you want to play and test the search capabilities of Chef Server, rather than test across &lt;em&gt;separate&lt;/em&gt; OS installations.&lt;/p&gt;
-
-&lt;h2 id=&#34;remote-nodes&#34;&gt;Remote Nodes&lt;/h2&gt;
-
-&lt;p&gt;When running &lt;code&gt;chef_zero&lt;/code&gt; as a provisioner, test-kitchen lets you pre-load your &lt;em&gt;local&lt;/em&gt; chef-server with &lt;em&gt;real&lt;/em&gt; node data obtained from another chef server.&lt;/p&gt;
-
-&lt;p&gt;So say I have my production chef server which knows about all the nodes (IPaddresses and &lt;a href=&#34;https://docs.chef.io/ohai.html&#34;&gt;Ohai data&lt;/a&gt;). Now I want to run Nagios locally but have it work against production data.&lt;/p&gt;
-
-&lt;p&gt;First we get the data from our production chef server into our local test-kitchen repo&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd test/integration/nodes
-h=&amp;lt;name of node on chef server&amp;gt;
-knife node show $h -Fj &amp;gt; $h.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now &lt;code&gt;kitchen converge&lt;/code&gt; will load this data into the local chef server and make it available to chef code executing in the VM. Of course you can configure your setup to actually talk to your production setup. But the whole point of having test-kitchen is to have local runs which are safely segregated from production.&lt;/p&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Test Kitchen is great for infrastructure testing. With help from Vagrant and Virtualbox, it can setup separate virtual servers which can talk to each other using dedicated private IPs. This facilitates experimentation and integration testing of multiple servers.&lt;/p&gt;
-</description>
+      <description>What&amp;rsquo;s test kitchen? From Test Kitchen
+ It is designed to execute isolated code run in pristine environments ensuring that no prior state exists.
+ It hooks with Chef really well and provides integration testing for infrastructure code and is a great tool for developing runbooks as code. You can use it with Vagrant/EC2/Docker to provide the underlying &amp;lsquo;server environments&amp;rsquo;.
+Why use it? I returned to Nagios after many years and wanted to get it up and running locally.</description>
     </item>
     
     <item>
@@ -358,14 +51,9 @@ knife node show $h -Fj &amp;gt; $h.json
       <pubDate>Fri, 31 Mar 2017 21:39:11 -0800</pubDate>
       
       <guid>https://blog.manasg.com/about/</guid>
-      <description>&lt;p&gt;My name is Manas Gupta. I am a software engineer helping with Technical Operations at the Yahoo Mail Contacts (Xobni) team in the Bay Area.&lt;/p&gt;
-
-&lt;p&gt;When I am not spending time with my wife and two wonderful daughters, you can find me reading plot summaries for movies/tv-shows. I &lt;a href=&#34;https://bookpiles.ca/manasg/books?pile=reading&#34;&gt;do read&lt;/a&gt; technical books without waiting for the spoilers.&lt;/p&gt;
-
-&lt;p&gt;I have lived in a lot of places, but Montreal (Canada) can be considered home base.&lt;/p&gt;
-
-&lt;p&gt;Need to reach me? &lt;a href=&#34;mailto:hello@manasg.com&#34;&gt;hello@manasg.com&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/manas_gpt&#34;&gt;twitter&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>My name is Manas Gupta. I am a software engineer helping with Technical Operations at the Yahoo Mail Contacts (Xobni) team in the Bay Area.
+When I am not spending time with my wife and two wonderful daughters, you can find me reading plot summaries for movies/tv-shows. I do read technical books without waiting for the spoilers.
+I have lived in a lot of places, but Montreal (Canada) can be considered home base.</description>
     </item>
     
     <item>
@@ -374,54 +62,10 @@ knife node show $h -Fj &amp;gt; $h.json
       <pubDate>Sat, 25 Mar 2017 01:13:28 -0700</pubDate>
       
       <guid>https://blog.manasg.com/runbooks-as-code/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;Here&amp;rsquo;s the jar to run in prod and here&amp;rsquo;s the pdf on troubleshooting it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This still happens in 2017. It may make sense if you are shipping software to run outside your organization. But in an online/SaaS environment, this falls apart after a couple of months.&lt;/p&gt;
-
-&lt;p&gt;Here are some of our team&amp;rsquo;s guidelines, whenever we bring new components online.&lt;/p&gt;
-
-&lt;h3 id=&#34;deployed-with-chef-no-exceptions&#34;&gt;Deployed with Chef, no exceptions&lt;/h3&gt;
-
-&lt;p&gt;Even if the chef cookbook is just a collection of &lt;code&gt;execute&lt;/code&gt; directives. This adds the new server into our &amp;ldquo;on-line&amp;rdquo; inventory and is picked up by the monitoring system. It gets the correct security profiles and other org-wide base configurations.&lt;/p&gt;
-
-&lt;p&gt;Any configuration management system - Puppet, Ansible - is fine too. I am biased towards Chef-Server due to my previous experiences and it&amp;rsquo;s very good search capabilities - &lt;code&gt;knife search &amp;quot;role:worker AND colo:en1&amp;quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;process-has-to-be-supervised&#34;&gt;Process has to be supervised&lt;/h3&gt;
-
-&lt;p&gt;The process running the application (java/node.js) has to be supervised with daemontools or runit or systemD. Everything crashes. The idea is to not debate code quality here. Having a supervisor reduces the impact of a process crash. And no manual intervention to bring it back up in the middle of the night. Other parts of the ops-stack will catch the crash and log it for later analysis.&lt;/p&gt;
-
-&lt;h3 id=&#34;alive&#34;&gt;/alive&lt;/h3&gt;
-
-&lt;p&gt;It it&amp;rsquo;s a web-service, it should have an endpoint which can be used to check if it&amp;rsquo;s &amp;lsquo;up&amp;rsquo;. I could use top and check the logs, but this is faster and can be done externally.&lt;/p&gt;
-
-&lt;h3 id=&#34;connected-with-self-healer-aka-boss&#34;&gt;Connected with Self-Healer aka Boss&lt;/h3&gt;
-
-&lt;p&gt;My colleague (Pierre Belanger) maintains the awesome boss utility. It runs as cron and checks the state of a process and attempts to heal it if needed. The healing is mostly a brutal restart, but it&amp;rsquo;s very effective.&lt;/p&gt;
-
-&lt;p&gt;For example, if your ruby process is running, but not listening on it&amp;rsquo;s port, it will be restarted. If it doesn&amp;rsquo;t respond to heartbeat in a given amount of time, it will be restarted.&lt;/p&gt;
-
-&lt;p&gt;The boss utility is smart. It won&amp;rsquo;t blindly start up things which have been intentionally stopped or mess up sequences during deploys. It sits between our monitoring system and the process-to-be-monitored. The boss will try to heal a bad process, and if it can&amp;rsquo;t the monitoring system takes over and gets a human.&lt;/p&gt;
-
-&lt;h3 id=&#34;a-bundled-health-check-script&#34;&gt;A bundled health check script&lt;/h3&gt;
-
-&lt;p&gt;The script is tightly coupled with the application logic. Say you had a web-service which returned md5sum for a string. The script will do this all the time.&lt;/p&gt;
-
-&lt;p&gt;The application developers own it, but the OpsTeam helps authoring the first few versions.&lt;/p&gt;
-
-&lt;p&gt;Should the monitoring system do the health check? I don&amp;rsquo;t like that approach. If the application logic changes, you need to make sure the release cycle is in-sync with the monitoring system. By bundling the checker with the runnable code itself, the release cycle dependency is gone. Also keeping the health check and healer closer to the process within the box makes monitoring more effective.&lt;/p&gt;
-
-&lt;h1 id=&#34;but-containers&#34;&gt;But containers?&lt;/h1&gt;
-
-&lt;p&gt;(Docker) containers with schedulers (Mesos/Swarm) can take care of some of these problems. They provide a different level of abstraction. For example instead of a process being restarted by cron, the Docker daemon would spin up a new container for a dead/non-responsive/un-healthy container.&lt;/p&gt;
-
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;Runbooks in the SaaS world need to evolve to keep up with complexity and quick release cycles. A (markdown) doc should focus on the &amp;lsquo;why&amp;rsquo;, and the &amp;lsquo;how&amp;rsquo; should be handled with code.&lt;/p&gt;
-</description>
+      <description>Here&amp;rsquo;s the jar to run in prod and here&amp;rsquo;s the pdf on troubleshooting it.
+ This still happens in 2017. It may make sense if you are shipping software to run outside your organization. But in an online/SaaS environment, this falls apart after a couple of months.
+Here are some of our team&amp;rsquo;s guidelines, whenever we bring new components online.
+Deployed with Chef, no exceptions Even if the chef cookbook is just a collection of execute directives.</description>
     </item>
     
     <item>
@@ -430,97 +74,10 @@ knife node show $h -Fj &amp;gt; $h.json
       <pubDate>Thu, 05 Jan 2017 21:02:03 -0700</pubDate>
       
       <guid>https://blog.manasg.com/achieving-common-ground/</guid>
-      <description>
-
-&lt;p&gt;What are some tools to help developers and operations achieve common ground?&lt;/p&gt;
-
-&lt;p&gt;There are tools which can help, but it&amp;rsquo;s more effective to work out the flow of information between the teams and use tools to facilitate the transfer.&lt;/p&gt;
-
-&lt;h2 id=&#34;dashboards-for-metrics&#34;&gt;Dashboards for Metrics&lt;/h2&gt;
-
-&lt;p&gt;Lets take a web service as an example. Begin with two to four metrics which are common and relevant across the teams&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;rate of requests&lt;/li&gt;
-&lt;li&gt;rate of error (http_code &amp;gt; 499)&lt;/li&gt;
-&lt;li&gt;latency&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;They should be in an easy to remember location and available to everyone. Put them on a TV in the common space! Base your monitoring off it!&lt;/p&gt;
-
-&lt;p&gt;It&amp;rsquo;s easy to collaborate when you are looking and talking about the same thing.&lt;/p&gt;
-
-&lt;h2 id=&#34;access&#34;&gt;Access&lt;/h2&gt;
-
-&lt;p&gt;It starts with &amp;ldquo;Trust&amp;rdquo;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;I don&amp;rsquo;t want to give access as they may cause an outage!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I have heard variations of the above so many times. Why will &amp;ldquo;they&amp;rdquo; who are on the same team, intentionally bring your system down?&lt;/p&gt;
-
-&lt;p&gt;Some of the smartest people I know have typed commands in wrong terminals :) Mistakes happen. But the &amp;ldquo;system&amp;rdquo; should be built to withstand small mistakes. You don&amp;rsquo;t have to give sudo access to everyone. It&amp;rsquo;s counter intuitive, but the system will become more secure over time as it forces a re-think of permissions.&lt;/p&gt;
-
-&lt;p&gt;This recommendation is to help with a better &lt;a href=&#34;https://twitter.com/search?q=%23opslife=&#34;&gt;#opslife&lt;/a&gt;. Depending on the size of your organization, you need to have proper security guidelines about this. I don&amp;rsquo;t mean to imply that every employee should be able to SSH into all the systems. However if you are on the same team, working on the same service, you should have access.&lt;/p&gt;
-
-&lt;h2 id=&#34;bash-aliases&#34;&gt;(Bash) Aliases&lt;/h2&gt;
-
-&lt;p&gt;How many times you login to a system to check something and don&amp;rsquo;t remember the full command? And the grep/awk/sed combo? You search your email/wiki/hipchat/evernote or worse ping somebody.&lt;/p&gt;
-
-&lt;p&gt;Aliases to the rescue!&lt;/p&gt;
-
-&lt;p&gt;What&amp;rsquo;s the log directory? &lt;code&gt;cdl&lt;/code&gt; =&amp;gt; cd to the log directory (wherever it is)&lt;/p&gt;
-
-&lt;p&gt;Where are HAProxy logs, I wanna tail them? &lt;code&gt;hap-tail-access&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;How do I take this machine out of service? &lt;code&gt;oos&lt;/code&gt;. And &lt;code&gt;bis&lt;/code&gt; to bring it back.&lt;/p&gt;
-
-&lt;p&gt;Compliment with a common prefix such as &lt;code&gt;orgname_&lt;/code&gt;. This way you can ssh into a box, type &lt;code&gt;orgname_&lt;/code&gt; and tab your way to see what&amp;rsquo;s available.&lt;/p&gt;
-
-&lt;p&gt;Of course there has to be some sanity to this. That&amp;rsquo;s where your configuration management system comes into play, use it to keep track of all of these and update them when a path changes.&lt;/p&gt;
-
-&lt;p&gt;This approach worked great for our teams as both devs and ops people were able to login and troubleshoot problems quickly without looking up the wiki!&lt;/p&gt;
-
-&lt;h2 id=&#34;logging&#34;&gt;Logging&lt;/h2&gt;
-
-&lt;p&gt;Instead of &lt;code&gt;Request Completed&lt;/code&gt; strive for&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;2017-05-06T05:32:28.9Z INFO: Request (fds12a) completed successfully for user (george)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You can use json or any other key=value formatting for faster parsing/indexing.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-	&amp;quot;t&amp;quot;: &amp;quot;2017-05-06T05:32:28.9Z&amp;quot;,
-	&amp;quot;l&amp;quot;: &amp;quot;INFO&amp;quot;,
-	&amp;quot;request_id&amp;quot;: &amp;quot;fds12a&amp;quot;,
-	&amp;quot;status&amp;quot;: &amp;quot;success&amp;quot;,
-	&amp;quot;user&amp;quot;: &amp;quot;george&amp;quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Shameless plug - hear me talk (&amp;lt;5 min) about logging at &lt;a href=&#34;https://vimeo.com/album/2573383/video/79377684&#34;&gt;DevOpsDays 2013 NYC Fall&lt;/a&gt;, &lt;a href=&#34;https://www.slideshare.net/ngrep_q/5-manas-gupta-achieving-common-ground-via-logging&#34;&gt;slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Logs are a great way to achieve common ground between the authors and the operators of a system.&lt;/p&gt;
-
-&lt;h2 id=&#34;chatops-bots&#34;&gt;ChatOps &amp;amp; Bots&lt;/h2&gt;
-
-&lt;p&gt;Github made &lt;a href=&#34;https://speakerdeck.com/jnewland/chatops-at-github&#34;&gt;ChatOps&lt;/a&gt; easy for everyone by open-sourcing &lt;a href=&#34;https://hubot.github.com/&#34;&gt;Hubot&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In addition to benefiting our dev and ops teams, our hubot instance helped our customer-support and product teams. Hubot took the concept of &amp;lsquo;command aliases&amp;rsquo; to the chat room. This expanded our collaboration with teams who did not have shell or api access to our systems but needed adhoc data (white listing in place to restrict who can run certain commands)&lt;/p&gt;
-
-&lt;h2 id=&#34;everything-should-have-a-rest-api&#34;&gt;Everything should have a (REST) API&lt;/h2&gt;
-
-&lt;p&gt;Never buy/adopt a tool which doesn&amp;rsquo;t have a good API.&lt;/p&gt;
-
-&lt;p&gt;Why have an API? Systems can be chained together with APIs thus breaking down information silos. As an example, what chef run-list and environment should be applied to a newly racked node. One could look up the documentation or I could make a CURL call during the provisioning phase of the system. We maintain a mapping of chef run-lists and environments in a git repo. A &lt;a href=&#34;http://www.sinatrarb.com/&#34;&gt;Sinatra&lt;/a&gt; app makes it available to anyone.&lt;/p&gt;
-
-&lt;h2 id=&#34;a-caveat&#34;&gt;A caveat&lt;/h2&gt;
-
-&lt;p&gt;None of this works if &amp;ldquo;the-right-culture&amp;rdquo; and &amp;ldquo;empathy&amp;rdquo; are absent. Hopefully some of these ideas can serve as ice-breakers and get everybody moving in the right direction&lt;/p&gt;
-
-&lt;p&gt;Use a tool which works for your organization. Maybe &lt;em&gt;DevOps 4.0 Professional Edition SP2&lt;/em&gt; is what you need or maybe &lt;code&gt;bash&lt;/code&gt; and having lunch together will do.&lt;/p&gt;
-</description>
+      <description>What are some tools to help developers and operations achieve common ground?
+There are tools which can help, but it&amp;rsquo;s more effective to work out the flow of information between the teams and use tools to facilitate the transfer.
+Dashboards for Metrics Lets take a web service as an example. Begin with two to four metrics which are common and relevant across the teams
+ rate of requests rate of error (http_code &amp;gt; 499) latency  They should be in an easy to remember location and available to everyone.</description>
     </item>
     
     <item>
@@ -529,106 +86,10 @@ knife node show $h -Fj &amp;gt; $h.json
       <pubDate>Thu, 22 Dec 2016 21:56:28 -0700</pubDate>
       
       <guid>https://blog.manasg.com/the-devops-engineer/</guid>
-      <description>
-
-&lt;p&gt;I was looking for someone on the operations side of things to join us. You know, Ops, running and maintaining Production. I was asked if I was looking for a SysAdmin, Site Reliability Engineer (SRE) or a DevOps Engineer. I did not give it much thought and went through a resume screening exercise.&lt;/p&gt;
-
-&lt;p&gt;And then it struck me.&lt;/p&gt;
-
-&lt;p&gt;There were so many &lt;strong&gt;&amp;ldquo;DevOps Engineers&amp;rdquo;&lt;/strong&gt; resumes out there:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;who knew Chef/Puppet/Ansible&lt;/li&gt;
-&lt;li&gt;who could code against the AWS Api&lt;/li&gt;
-&lt;li&gt;who knew Docker :)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Surprisingly, &lt;strong&gt;&amp;ldquo;hands-on and troubleshooting experience, on a high traffic website, powered by any-flavor-of-unix&amp;rdquo;&lt;/strong&gt; was absent. And what about Architecture, High-Availability, Monitoring, Load-Balancing?&lt;/p&gt;
-
-&lt;h2 id=&#34;why-does-this-make-me-cringe&#34;&gt;Why does this make me cringe?&lt;/h2&gt;
-
-&lt;p&gt;I do DevOps is like saying I do Teamwork. The DevOps team is even worse, because you know&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;DevOps is a game changing grassroots philosophy based on:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Empathy&lt;/li&gt;
-&lt;li&gt;Don&amp;rsquo;t toss code over the wall&lt;/li&gt;
-&lt;li&gt;Break the Silos&lt;/li&gt;
-&lt;li&gt;Culture of sharing&lt;/li&gt;
-&lt;li&gt;Quick and constant feedback&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This could be achieved with metrics and tooling. Or whatever you do just try to get better at the above :) If you want a proper history, go read &lt;a href=&#34;https://www.amazon.com/Web-Operations-Keeping-Data-Time/dp/1449377440&#34;&gt;Web Operations - Keeping the Data on Time&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This all started around 2008-09 and it seeded a new breed of tools, which was great.&lt;/p&gt;
-
-&lt;p&gt;Sometime after that &amp;ldquo;DevOps&amp;rdquo; got picked up by marketing and the original message started to get lost.&lt;/p&gt;
-
-&lt;h2 id=&#34;a-career-in-technical-operations&#34;&gt;A Career in Technical Operations&lt;/h2&gt;
-
-&lt;p&gt;Don&amp;rsquo;t just be an &amp;ldquo;operator&amp;rdquo; of a DevOps tool ;)&lt;/p&gt;
-
-&lt;p&gt;Writing a Chef recipe which can get a list of nodes &amp;ldquo;automagically&amp;rdquo; is a great start. Congratulations, you don&amp;rsquo;t need to put IP addresses in a wiki anymore.&lt;/p&gt;
-
-&lt;p&gt;That&amp;rsquo;s just the start. You still need to know things under the hood.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;How (not when - because you know Murphy) will your chef recipe fail?&lt;/li&gt;
-&lt;li&gt;If Chef server&amp;rsquo;s index is corrupt will it cause an outage?&lt;/li&gt;
-&lt;li&gt;TCP/IP, DNS, HTTPs, SSH - at a protocol level&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Aim to make your system more operable. Use bash scripts if that works for your team. Be sure to write good bash scripts (with error handling), have a &lt;a href=&#34;https://google.github.io/styleguide/shell.xml&#34;&gt;guideline&lt;/a&gt; and make them &lt;a href=&#34;https://github.com/sstephenson/bats&#34;&gt;testable&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You don&amp;rsquo;t need fancy technology to encourage collaboration, &lt;a href=&#34;http://mcfunley.com/choose-boring-technology&#34;&gt;boring will do&lt;/a&gt;. Focus on building the house and not playing with a hammer.&lt;/p&gt;
-
-&lt;h3 id=&#34;opslife&#34;&gt;#OpsLife&lt;/h3&gt;
-
-&lt;p&gt;But I do get why some folks want to be &amp;ldquo;DevOps Engineers&amp;rdquo;. I have been on the receiving end of many &lt;a href=&#34;https://en.wikipedia.org/wiki/Bastard_Operator_From_Hell&#34;&gt;BOFH&lt;/a&gt;. The dark times when:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;servers were treated like pets (vs cattle)&lt;/li&gt;
-&lt;li&gt;production access was limited&lt;/li&gt;
-&lt;li&gt;it took forever to get production-like environments setup&lt;/li&gt;
-&lt;li&gt;monitoring used to suck&lt;/li&gt;
-&lt;li&gt;deployments were an all night affair with everybody on a conference call&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I definitely did not want to end up in a place like that. Practicing DevOps was a breath of fresh air.&lt;/p&gt;
-
-&lt;p&gt;Saw this on twitter &amp;ldquo;Ops is like a game of Tetris, achievements disappear and errors pile up&amp;rdquo;. Another one &lt;a href=&#34;https://twitter.com/wattersjames/status/770375207219449858&#34;&gt;here&lt;/a&gt;. It doesn&amp;rsquo;t have to be that way. Track your outages as a metric and then track mean-time-to-detection (MTTD). Improve those and then add mean-time-to-remediation (MTTR).&lt;/p&gt;
-
-&lt;p&gt;If your org does not value that and insists on buying Enterprise DevOps 2.0 Professional Edition, then go find some other org.&lt;/p&gt;
-
-&lt;p&gt;So what&amp;rsquo;s the north star for a career in Technical Operations?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://omniti.com/is/theo-schlossnagle&#34;&gt;Theo Schlossnagle puts it very eloquently&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It is an impossible job requirement: “Knows everything about all technologies deployed in Internet architectures.” While no one fills this requirement, what I want is someone whose career goal is to find out how close they can get.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And don&amp;rsquo;t be a &amp;ldquo;jerk&amp;rdquo;.&lt;/p&gt;
-
-&lt;h3 id=&#34;developer-productivity-tools-teams&#34;&gt;Developer Productivity/Tools teams&lt;/h3&gt;
-
-&lt;p&gt;Some organizations have a &amp;ldquo;tools&amp;rdquo; or a &amp;ldquo;developer productivity&amp;rdquo; team. They maybe in charge of maintaining the CI/CD or the monitoring stack. They may also write tools which make your life easier (or harder). But you still need the &lt;a href=&#34;https://www.safaribooksonline.com/library/view/web-operations/9781449377465/ch01.html&#34;&gt;plain old Ops team&lt;/a&gt; which works very closely with the tools team and breaks the silos.&lt;/p&gt;
-
-&lt;p&gt;And they (the tools team) should be part of an &amp;ldquo;on-call&amp;rdquo; rotation. There is something about the experience of getting paged at 3 am and troubleshooting an incident by yourself! It will result in way better internal tools/processes than any amount of sprint planning. Although this should be handled properly to avoid burn-outs (that&amp;rsquo;s a post for another day).&lt;/p&gt;
-
-&lt;h2 id=&#34;devops-before-devops&#34;&gt;DevOps before DevOps&lt;/h2&gt;
-
-&lt;p&gt;By the way, look around you, you may already be in a team which practices DevOps&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Do your devs have access to production?&lt;/li&gt;
-&lt;li&gt;Do they troubleshoot with you?&lt;/li&gt;
-&lt;li&gt;Do the ops and dev teams look at the same set of metrics?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you have that, you are already ahead of 70% of IT shops out there.&lt;/p&gt;
-</description>
+      <description>I was looking for someone on the operations side of things to join us. You know, Ops, running and maintaining Production. I was asked if I was looking for a SysAdmin, Site Reliability Engineer (SRE) or a DevOps Engineer. I did not give it much thought and went through a resume screening exercise.
+And then it struck me.
+There were so many &amp;ldquo;DevOps Engineers&amp;rdquo; resumes out there:
+ who knew Chef/Puppet/Ansible who could code against the AWS Api who knew Docker :)  Surprisingly, &amp;ldquo;hands-on and troubleshooting experience, on a high traffic website, powered by any-flavor-of-unix&amp;rdquo; was absent.</description>
     </item>
     
   </channel>
