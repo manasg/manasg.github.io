@@ -49,7 +49,7 @@
 
   <article class="article">
     
-    <span class="article-duration">3 min read</span>
+    <span class="article-duration">4 min read</span>
     
 
     <h1 class="article-title">Fun with IPSet and IPTables</h1>
@@ -188,11 +188,13 @@
 
 <p><img src="/images/posts/fun-ipset-iptables/run2-vr.png" height="120px" width="650px"></p>
 
-<p>We even had a timeout! The test can always be run for a much longer duration as well as multiple cycles to cater for outliers.</p>
+<p>There&rsquo;s a definite uptick in 95th and 99th percentile latencies. We even had a timeout! The test can always be run for a much longer duration as well as multiple cycles to cater for outliers.</p>
 
 <p><strong>Perf top on destination</strong></p>
 
 <p><img src="/images/posts/fun-ipset-iptables/run2-pt.png" height="800px" width="650px"></p>
+
+<p>We are spending a fair amount of CPU cycles dealing with IPTables. In the next step, we replace these 1600 rules with a handful using IPSet.</p>
 
 <h3 id="run-3-ipset-rules-on-destination-server">Run #3 - IPset rules on destination server</h3>
 
