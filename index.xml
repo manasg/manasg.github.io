@@ -6,10 +6,20 @@
     <description>Recent content on Manas Gupta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 May 2017 21:58:42 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 25 Sep 2017 21:20:05 -0700</lastBuildDate>
     
 	<atom:link href="https://blog.manasg.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fun with IPSet and IPTables</title>
+      <link>https://blog.manasg.com/fun-with-ipset-and-iptables/</link>
+      <pubDate>Mon, 25 Sep 2017 21:20:05 -0700</pubDate>
+      
+      <guid>https://blog.manasg.com/fun-with-ipset-and-iptables/</guid>
+      <description>TLDR IPSet is an extension of IPTables which can give significant performance gains as well as simplify configuration. perf top showed 10-30% CPU overhead for IPTables in my setup. It was negligible with IPSet.
+Background  An additional IP-layer security was needed for a HTTP/s server 4 ports to be restricted A pool of Virtual Machines on the LAN (no NAT) were the clients Clients had random or non-contiguous IPs Chef runs on all the machines  It was almost trivial to have some chef code to get the IPs of all the clients and create IPTable rules.</description>
+    </item>
     
     <item>
       <title>Monitorama 2017 : My Impressions</title>
