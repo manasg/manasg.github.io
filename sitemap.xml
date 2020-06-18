@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.manasg.com/isp-and-dns-injection/</loc>
+    <lastmod>2020-06-17T18:59:42-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.manasg.com/fun-with-ipset-and-iptables/</loc>
     <lastmod>2017-09-25T21:20:05-07:00</lastmod>
   </url>
@@ -49,7 +54,7 @@
   
   <url>
     <loc>https://blog.manasg.com/</loc>
-    <lastmod>2017-09-25T21:20:05-07:00</lastmod>
+    <lastmod>2020-06-17T18:59:42-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -61,7 +66,7 @@
   
   <url>
     <loc>https://blog.manasg.com/post/</loc>
-    <lastmod>2017-09-25T21:20:05-07:00</lastmod>
+    <lastmod>2020-06-17T18:59:42-07:00</lastmod>
     <priority>0</priority>
   </url>
   

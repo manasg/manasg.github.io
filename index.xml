@@ -6,10 +6,20 @@
     <description>Recent content on Manas Gupta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Sep 2017 21:20:05 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 18:59:42 -0700</lastBuildDate>
     
 	<atom:link href="https://blog.manasg.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ISP and DNS Injection</title>
+      <link>https://blog.manasg.com/isp-and-dns-injection/</link>
+      <pubDate>Wed, 17 Jun 2020 18:59:42 -0700</pubDate>
+      
+      <guid>https://blog.manasg.com/isp-and-dns-injection/</guid>
+      <description>A case of non-existent DNS entries coming to life blah.blah exists? $ ping -c2 blah.blah PING blah.blah (23.202.231.169) 56(84) bytes of data. 64 bytes from a23-202-231-169.deploy.static.akamaitechnologies.com (23.202.231.169): icmp_seq=1 ttl=53 time=71.5 ms  I ran the above command on a whim on my new raspberry pi and was surprised by the result. That DNS entry does not exist. And neither does the tld. WTF?
+What about fhdskfsdafs.google.com ? Let&amp;rsquo;s try this fhdskfsdafs.</description>
+    </item>
     
     <item>
       <title>Fun with IPSet and IPTables</title>
