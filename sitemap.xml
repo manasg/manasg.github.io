@@ -1,45 +1,78 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
-    <loc>https://blog.manasg.com/about/</loc>
-    <lastmod>2021-12-30T15:30:00-05:00</lastmod>
-  </url><url>
-    <loc>https://blog.manasg.com/</loc>
-    <lastmod>2021-12-30T15:30:00-05:00</lastmod>
-  </url><url>
-    <loc>https://blog.manasg.com/page/</loc>
-    <lastmod>2021-12-30T15:30:00-05:00</lastmod>
-  </url><url>
     <loc>https://blog.manasg.com/isp-and-dns-injection/</loc>
     <lastmod>2020-06-17T18:59:42-07:00</lastmod>
-  </url><url>
-    <loc>https://blog.manasg.com/post/</loc>
-    <lastmod>2020-06-17T18:59:42-07:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://blog.manasg.com/fun-with-ipset-and-iptables/</loc>
     <lastmod>2017-09-25T21:20:05-07:00</lastmod>
-  </url><url>
-    <loc>https://blog.manasg.com/monitorama-2017-my-impressions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/monitorama-2017--my-impressions/</loc>
     <lastmod>2017-05-26T21:58:42-07:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://blog.manasg.com/putting-it-all-together/</loc>
     <lastmod>2017-05-08T21:29:18-07:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://blog.manasg.com/multi-node-setup-with-test-kitchen/</loc>
     <lastmod>2017-04-02T09:41:22-07:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/about/</loc>
+    <lastmod>2017-03-31T21:39:11-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.manasg.com/runbooks-as-code/</loc>
     <lastmod>2017-03-25T01:13:28-07:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://blog.manasg.com/achieving-common-ground/</loc>
     <lastmod>2017-01-05T21:02:03-07:00</lastmod>
-  </url><url>
+  </url>
+  
+  <url>
     <loc>https://blog.manasg.com/the-devops-engineer/</loc>
     <lastmod>2016-12-22T21:56:28-07:00</lastmod>
-  </url><url>
-    <loc>https://blog.manasg.com/categories/</loc>
-  </url><url>
-    <loc>https://blog.manasg.com/tags/</loc>
   </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/</loc>
+    <lastmod>2020-06-17T18:59:42-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/page/</loc>
+    <lastmod>2017-03-31T21:39:11-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/post/</loc>
+    <lastmod>2020-06-17T18:59:42-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.manasg.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
 </urlset>

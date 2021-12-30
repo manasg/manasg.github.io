@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Manas Gupta</title>
@@ -6,15 +6,19 @@
     <description>Recent content in Posts on Manas Gupta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Jun 2020 18:59:42 -0700</lastBuildDate><atom:link href="https://blog.manasg.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jun 2020 18:59:42 -0700</lastBuildDate>
+    
+	<atom:link href="https://blog.manasg.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>ISP and DNS Injection</title>
       <link>https://blog.manasg.com/isp-and-dns-injection/</link>
       <pubDate>Wed, 17 Jun 2020 18:59:42 -0700</pubDate>
       
       <guid>https://blog.manasg.com/isp-and-dns-injection/</guid>
-      <description>A case of non-existent DNS entries coming to life blah.blah exists? $ ping -c2 blah.blah PING blah.blah (23.202.231.169) 56(84) bytes of data. 64 bytes from a23-202-231-169.deploy.static.akamaitechnologies.com (23.202.231.169): icmp_seq=1 ttl=53 time=71.5 ms I ran the above command on a whim on my new raspberry pi and was surprised by the result. That DNS entry does not exist. And neither does the tld. WTF?
-What about fhdskfsdafs.google.com ? Let&amp;rsquo;s try this fhdskfsdafs.google.com</description>
+      <description>A case of non-existent DNS entries coming to life blah.blah exists? $ ping -c2 blah.blah PING blah.blah (23.202.231.169) 56(84) bytes of data. 64 bytes from a23-202-231-169.deploy.static.akamaitechnologies.com (23.202.231.169): icmp_seq=1 ttl=53 time=71.5 ms  I ran the above command on a whim on my new raspberry pi and was surprised by the result. That DNS entry does not exist. And neither does the tld. WTF?
+What about fhdskfsdafs.google.com ? Let&amp;rsquo;s try this fhdskfsdafs.</description>
     </item>
     
     <item>
@@ -29,10 +33,10 @@ Background  An additional IP-layer security was needed for a HTTP/s server 4 por
     
     <item>
       <title>Monitorama 2017 : My Impressions</title>
-      <link>https://blog.manasg.com/monitorama-2017-my-impressions/</link>
+      <link>https://blog.manasg.com/monitorama-2017--my-impressions/</link>
       <pubDate>Fri, 26 May 2017 21:58:42 -0700</pubDate>
       
-      <guid>https://blog.manasg.com/monitorama-2017-my-impressions/</guid>
+      <guid>https://blog.manasg.com/monitorama-2017--my-impressions/</guid>
       <description>I attended Monitorama 2017 in PDX a few days ago. It&amp;rsquo;s a fantastic conference, which anybody running or writing a production service should attend.
 All talks were live streamed and recordings are available - day1, day2 and day3. I chose to attend since it let&amp;rsquo;s me give my full attention to the speakers. It also served as a great off-site or an ops person&amp;rsquo;s retreat :). There is something special about &amp;ldquo;being&amp;rdquo; at the venue, relevant chatter and meeting other folks.</description>
     </item>
