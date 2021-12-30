@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.91.0" />
 
 
 <title>The DevOps Engineer - Manas Gupta</title>
@@ -57,28 +57,18 @@
     
 
     <div class="article-content">
-      
-
-<p>I was looking for someone on the operations side of things to join us. You know, Ops, running and maintaining Production. I was asked if I was looking for a SysAdmin, Site Reliability Engineer (SRE) or a DevOps Engineer. I did not give it much thought and went through a resume screening exercise.</p>
-
+      <p>I was looking for someone on the operations side of things to join us. You know, Ops, running and maintaining Production. I was asked if I was looking for a SysAdmin, Site Reliability Engineer (SRE) or a DevOps Engineer. I did not give it much thought and went through a resume screening exercise.</p>
 <p>And then it struck me.</p>
-
 <p>There were so many <strong>&ldquo;DevOps Engineers&rdquo;</strong> resumes out there:</p>
-
 <ul>
 <li>who knew Chef/Puppet/Ansible</li>
 <li>who could code against the AWS Api</li>
 <li>who knew Docker :)</li>
 </ul>
-
 <p>Surprisingly, <strong>&ldquo;hands-on and troubleshooting experience, on a high traffic website, powered by any-flavor-of-unix&rdquo;</strong> was absent. And what about Architecture, High-Availability, Monitoring, Load-Balancing?</p>
-
 <h2 id="why-does-this-make-me-cringe">Why does this make me cringe?</h2>
-
 <p>I do DevOps is like saying I do Teamwork. The DevOps team is even worse, because you know&hellip;</p>
-
 <p>DevOps is a game changing grassroots philosophy based on:</p>
-
 <ul>
 <li>Empathy</li>
 <li>Don&rsquo;t toss code over the wall</li>
@@ -86,35 +76,22 @@
 <li>Culture of sharing</li>
 <li>Quick and constant feedback</li>
 </ul>
-
 <p>This could be achieved with metrics and tooling. Or whatever you do just try to get better at the above :) If you want a proper history, go read <a href="https://www.amazon.com/Web-Operations-Keeping-Data-Time/dp/1449377440">Web Operations - Keeping the Data on Time</a></p>
-
 <p>This all started around 2008-09 and it seeded a new breed of tools, which was great.</p>
-
 <p>Sometime after that &ldquo;DevOps&rdquo; got picked up by marketing and the original message started to get lost.</p>
-
 <h2 id="a-career-in-technical-operations">A Career in Technical Operations</h2>
-
 <p>Don&rsquo;t just be an &ldquo;operator&rdquo; of a DevOps tool ;)</p>
-
 <p>Writing a Chef recipe which can get a list of nodes &ldquo;automagically&rdquo; is a great start. Congratulations, you don&rsquo;t need to put IP addresses in a wiki anymore.</p>
-
 <p>That&rsquo;s just the start. You still need to know things under the hood.</p>
-
 <ul>
 <li>How (not when - because you know Murphy) will your chef recipe fail?</li>
 <li>If Chef server&rsquo;s index is corrupt will it cause an outage?</li>
 <li>TCP/IP, DNS, HTTPs, SSH - at a protocol level</li>
 </ul>
-
 <p>Aim to make your system more operable. Use bash scripts if that works for your team. Be sure to write good bash scripts (with error handling), have a <a href="https://google.github.io/styleguide/shell.xml">guideline</a> and make them <a href="https://github.com/sstephenson/bats">testable</a>.</p>
-
 <p>You don&rsquo;t need fancy technology to encourage collaboration, <a href="http://mcfunley.com/choose-boring-technology">boring will do</a>. Focus on building the house and not playing with a hammer.</p>
-
 <h3 id="opslife">#OpsLife</h3>
-
 <p>But I do get why some folks want to be &ldquo;DevOps Engineers&rdquo;. I have been on the receiving end of many <a href="https://en.wikipedia.org/wiki/Bastard_Operator_From_Hell">BOFH</a>. The dark times when:</p>
-
 <ul>
 <li>servers were treated like pets (vs cattle)</li>
 <li>production access was limited</li>
@@ -122,39 +99,25 @@
 <li>monitoring used to suck</li>
 <li>deployments were an all night affair with everybody on a conference call</li>
 </ul>
-
 <p>I definitely did not want to end up in a place like that. Practicing DevOps was a breath of fresh air.</p>
-
 <p>Saw this on twitter &ldquo;Ops is like a game of Tetris, achievements disappear and errors pile up&rdquo;. Another one <a href="https://twitter.com/wattersjames/status/770375207219449858">here</a>. It doesn&rsquo;t have to be that way. Track your outages as a metric and then track mean-time-to-detection (MTTD). Improve those and then add mean-time-to-remediation (MTTR).</p>
-
 <p>If your org does not value that and insists on buying Enterprise DevOps 2.0 Professional Edition, then go find some other org.</p>
-
 <p>So what&rsquo;s the north star for a career in Technical Operations?</p>
-
 <p><a href="https://omniti.com/is/theo-schlossnagle">Theo Schlossnagle puts it very eloquently</a></p>
-
 <blockquote>
 <p>It is an impossible job requirement: “Knows everything about all technologies deployed in Internet architectures.” While no one fills this requirement, what I want is someone whose career goal is to find out how close they can get.</p>
 </blockquote>
-
 <p>And don&rsquo;t be a &ldquo;jerk&rdquo;.</p>
-
-<h3 id="developer-productivity-tools-teams">Developer Productivity/Tools teams</h3>
-
+<h3 id="developer-productivitytools-teams">Developer Productivity/Tools teams</h3>
 <p>Some organizations have a &ldquo;tools&rdquo; or a &ldquo;developer productivity&rdquo; team. They maybe in charge of maintaining the CI/CD or the monitoring stack. They may also write tools which make your life easier (or harder). But you still need the <a href="https://www.safaribooksonline.com/library/view/web-operations/9781449377465/ch01.html">plain old Ops team</a> which works very closely with the tools team and breaks the silos.</p>
-
 <p>And they (the tools team) should be part of an &ldquo;on-call&rdquo; rotation. There is something about the experience of getting paged at 3 am and troubleshooting an incident by yourself! It will result in way better internal tools/processes than any amount of sprint planning. Although this should be handled properly to avoid burn-outs (that&rsquo;s a post for another day).</p>
-
 <h2 id="devops-before-devops">DevOps before DevOps</h2>
-
 <p>By the way, look around you, you may already be in a team which practices DevOps</p>
-
 <ul>
 <li>Do your devs have access to production?</li>
 <li>Do they troubleshoot with you?</li>
 <li>Do the ops and dev teams look at the same set of metrics?</li>
 </ul>
-
 <p>If you have that, you are already ahead of 70% of IT shops out there.</p>
 
     </div>
@@ -178,16 +141,18 @@
     </div>
 
     
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-98684184-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-98684184-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-
   </body>
 </html>
 
