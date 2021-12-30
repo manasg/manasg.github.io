@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.91.0" />
+<meta name="generator" content="Hugo 0.21" />
 
 
 <title>Multi Node Setup with Test Kitchen - Manas Gupta</title>
@@ -57,42 +57,68 @@
     
 
     <div class="article-content">
-      <h2 id="whats-test-kitchen">What&rsquo;s test kitchen?</h2>
+      
+
+<h2 id="what-s-test-kitchen">What&rsquo;s test kitchen?</h2>
+
 <p>From <a href="http://kitchen.ci/">Test Kitchen</a></p>
+
 <blockquote>
 <p>It is designed to execute isolated code run in pristine environments ensuring that no prior state exists.</p>
 </blockquote>
+
 <p>It hooks with <a href="https://www.chef.io/">Chef</a> really well and provides integration testing for infrastructure code and is a great tool for developing <a href="/runbooks-as-code">runbooks as code</a>. You can use it with Vagrant/EC2/Docker to provide the underlying &lsquo;server environments&rsquo;.</p>
+
 <h2 id="why-use-it">Why use it?</h2>
+
 <p>I returned to Nagios after many years and wanted to get it up and running locally. Times have changed since I last used Nagios, now we have things like Chef and Vagrant which help with rapid iterations and prototyping. Messed up the server, no worries, kill and re-create within a minute, all locally on my Macbook.</p>
+
 <p>Virtual Machine snapshots can achieve some of these results, but it&rsquo;s not the real deal :) For example if you need to test a certain script on a server booting for the first time, test-kitchen is a better tool.</p>
+
 <h2 id="the-setup">The Setup</h2>
+
 <p><a href="https://github.com/manasg/cookbook-mg_nagios">Here&rsquo;s a chef cookbook</a> to setup three separate virtual machines. The test-kitchen specific config lives in <a href="https://github.com/manasg/cookbook-mg_nagios/blob/master/.kitchen.yml">.kitchen.yml</a></p>
+
 <ol>
 <li>Nagios Server</li>
 <li>Candidate1 to be monitored</li>
 <li>Candidate2 to be monitored</li>
 </ol>
+
 <p>I am able to simulate bad configuration, packet drops, server reboots and observe how Nagios reacts.</p>
+
 <p>Usually you would get a list of servers to be monitored by querying Chef Server. By authoring your cookbook with proper attribute overrides you can enable local testing.</p>
-<pre tabindex="0"><code># set use_nodes_in_attrib true in .kitchen.yml
+
+<pre><code># set use_nodes_in_attrib true in .kitchen.yml
 
 if node['use_nodes_in_attrib']
   nodes = node['list_of_nodes']
 else
   nodes = search(:node, query)
 end
-</code></pre><h2 id="instances-vs-nodes">Instances vs Nodes</h2>
+</code></pre>
+
+<h2 id="instances-vs-nodes">Instances vs Nodes</h2>
+
 <p>Another common technique to simulate multiple nodes is by using instances. You could run two instances of <a href="https://github.com/chef-cookbooks/memcached#examples">memcache</a> on the <em>same</em> node. This is really advantageous when you want to play and test the search capabilities of Chef Server, rather than test across <em>separate</em> OS installations.</p>
+
 <h2 id="remote-nodes">Remote Nodes</h2>
+
 <p>When running <code>chef_zero</code> as a provisioner, test-kitchen lets you pre-load your <em>local</em> chef-server with <em>real</em> node data obtained from another chef server.</p>
+
 <p>So say I have my production chef server which knows about all the nodes (IPaddresses and <a href="https://docs.chef.io/ohai.html">Ohai data</a>). Now I want to run Nagios locally but have it work against production data.</p>
+
 <p>First we get the data from our production chef server into our local test-kitchen repo</p>
-<pre tabindex="0"><code>cd test/integration/nodes
+
+<pre><code>cd test/integration/nodes
 h=&lt;name of node on chef server&gt;
 knife node show $h -Fj &gt; $h.json
-</code></pre><p>Now <code>kitchen converge</code> will load this data into the local chef server and make it available to chef code executing in the VM. Of course you can configure your setup to actually talk to your production setup. But the whole point of having test-kitchen is to have local runs which are safely segregated from production.</p>
+</code></pre>
+
+<p>Now <code>kitchen converge</code> will load this data into the local chef server and make it available to chef code executing in the VM. Of course you can configure your setup to actually talk to your production setup. But the whole point of having test-kitchen is to have local runs which are safely segregated from production.</p>
+
 <h2 id="conclusion">Conclusion</h2>
+
 <p>Test Kitchen is great for infrastructure testing. With help from Vagrant and Virtualbox, it can setup separate virtual servers which can talk to each other using dedicated private IPs. This facilitates experimentation and integration testing of multiple servers.</p>
 
     </div>
@@ -116,18 +142,16 @@ knife node show $h -Fj &gt; $h.json
     </div>
 
     
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-98684184-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-98684184-1', 'auto');
+ga('send', 'pageview');
 </script>
+
   </body>
 </html>
 
