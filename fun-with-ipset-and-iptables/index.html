@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.91.2" />
 
 
 <title>Fun with IPSet and IPTables - Manas Gupta</title>
 <meta property="og:title" content="Fun with IPSet and IPTables - Manas Gupta">
+
 
 
 
@@ -16,8 +17,7 @@
 
 
 
-
-
+<link rel="icon" href="https://blog.manasg.com/images/" type="image/x-icon"/>
 <link rel="stylesheet" href="https://blog.manasg.com/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
@@ -57,14 +57,9 @@
     
 
     <div class="article-content">
-      
-
-<h2 id="tldr">TLDR</h2>
-
+      <h2 id="tldr">TLDR</h2>
 <p>IPSet is an extension of IPTables which can give significant performance gains as well as simplify configuration. <code>perf top</code> showed 10-30% CPU overhead for IPTables in my setup. It was negligible with IPSet.</p>
-
 <h2 id="background">Background</h2>
-
 <ul>
 <li>An additional IP-layer security was needed for a HTTP/s server</li>
 <li>4 ports to be restricted</li>
@@ -72,43 +67,27 @@
 <li>Clients had <em>random</em> or non-contiguous IPs</li>
 <li><a href="https://www.chef.io/">Chef</a> runs on all the machines</li>
 </ul>
-
 <p>It was almost trivial to have some chef code to get the IPs of all the clients and create IPTable rules. All was good. Immediate goal accomplished.</p>
-
 <h2 id="configuration">Configuration</h2>
-
 <p>4 ports</p>
-
 <ul>
 <li>400 Client IPs =&gt; 1600 Accept Rules</li>
 <li>4 Reject Rules</li>
 <li>Total rules =&gt; 1604</li>
 </ul>
-
 <p>This is a configuration nightmare if managed manually. However this is powered by Chef, so we never have to hand edit the rules. It&rsquo;s not pretty, but it works.</p>
-
 <h2 id="performance">Performance</h2>
-
 <p>We started noticing a decent amount of CPU time being spent in iptables as seen by <code>perf top</code>, about 10-30% <em>depending on the load</em>.</p>
-
 <p>In addition, some (~0.01%) requests would take longer than usual.</p>
-
 <p>The demo setup later demonstrates the issue via a load test.</p>
-
 <h2 id="enter-ipset">Enter IPSet</h2>
-
 <p>From <a href="http://www.linuxjournal.com/content/advanced-firewall-configurations-ipset">Linux Journal</a></p>
-
 <blockquote>
 <p>ipset is an extension to iptables that allows you to create firewall rules that match entire &ldquo;sets&rdquo; of addresses at once. Unlike normal iptables chains, which are stored and traversed linearly, IP sets are stored in indexed data structures, making lookups very efficient, even when dealing with large sets.</p>
 </blockquote>
-
 <p>Essentially, instead of enumerating each source IP, define an <code>ipset</code> which contains all the IPs. Then have an IPTable rule which references this <em>set</em>. This reduces lookup from O(n) to O(1).</p>
-
 <p>Using ipset was not that difficult. The chef code was modified slightly and off it went to production.</p>
-
 <h2 id="end-result">End Result</h2>
-
 <ul>
 <li>1 set containing all the IPs</li>
 <li>4 Accept Rules (1 per port)</li>
@@ -116,30 +95,22 @@
 <li>Almost negligible CPU overhead</li>
 <li>No more long tail latencies</li>
 </ul>
-
 <h2 id="the-fun-part">The &lsquo;Fun&rsquo; part</h2>
-
 <p>Using one of <a href="/multi-node-setup-with-test-kitchen/">my favorite tools</a> this can easily be demo&rsquo;ed. Here&rsquo;s a <a href="https://github.com/manasg/cookbook-mg_perf_iptables">chef cookbook</a> which will setup two servers locally.</p>
-
 <p><a href="https://github.com/manasg/cookbook-mg_perf_iptables/blob/master/.kitchen.yml">.kitchen.yml</a> defines the servers + network</p>
-
 <ul>
 <li>Centos 6.7 with 2.6.32-573.el6.x86_64 kernel</li>
 <li>iptables-1.4.7-16.el6.x86_64</li>
 <li>ipset-6.11-4.el6.x86_64</li>
 </ul>
-
 <h3 id="destination-dst">Destination (dst)</h3>
-
 <ul>
 <li><a href="https://github.com/manasg/cookbook-mg_perf_iptables/blob/master/recipes/dst.rb">code</a></li>
 <li>runs a <a href="https://github.com/manasg/cookbook-mg_perf_iptables/blob/master/files/default/http_server.go">http server</a> written in Go-Lang using Runit</li>
 <li>http_server can sleep a desired amount of time based on a get parameter</li>
 <li>loads IPTables or IPSet configuration based on a <a href="https://github.com/manasg/cookbook-mg_perf_iptables/blob/master/attributes/default.rb#L10-L13">flag</a></li>
 </ul>
-
 <h3 id="source-src">Source (src)</h3>
-
 <ul>
 <li><a href="https://github.com/manasg/cookbook-mg_perf_iptables/blob/master/recipes/src.rb">code</a></li>
 <li>installs <a href="https://github.com/tsenart/vegeta">Vegeta</a> to generate the load</li>
@@ -148,70 +119,55 @@
 <li>The test involves POSTing a file of a fixed size to the endpoint</li>
 <li>The goal is to have 750 req/sec concurrently</li>
 </ul>
-
 <h3 id="testing-with-curl">Testing with curl</h3>
+<pre tabindex="0"><code>[vagrant@src1 ~]$ curl http://172.28.3.10:45000/hello?sleep_ms=100 -v
+</code></pre><figure><img src="/images/posts/fun-ipset-iptables/curl1.png" width="650px" height="300px"/>
+</figure>
 
-<pre><code>[vagrant@src1 ~]$ curl http://172.28.3.10:45000/hello?sleep_ms=100 -v
-</code></pre>
-
-<p><img src="/images/posts/fun-ipset-iptables/curl1.png" height="300px" width="650px"></p>
-
-<h3 id="run-1-no-ip-filtering-on-the-destination-server">Run #1 - no IP Filtering on the destination server</h3>
-
-<pre><code>[root@dst1 ~]# iptables --flush
+<h3 id="run-1---no-ip-filtering-on-the-destination-server">Run #1 - no IP Filtering on the destination server</h3>
+<pre tabindex="0"><code>[root@dst1 ~]# iptables --flush
 [root@dst1 ~]# ipset --flush
-</code></pre>
-
-<p><strong>Vegeta Report</strong></p>
-
-<p><img src="/images/posts/fun-ipset-iptables/run1-vr.png" height="120px" width="650px"></p>
+</code></pre><p><strong>Vegeta Report</strong></p>
+<figure><img src="/images/posts/fun-ipset-iptables/run1-vr.png" width="650px" height="120px"/>
+</figure>
 
 <p>Notice the 95th, 99th percentile and max latencies, we will come back to these later.</p>
-
 <p><strong>Perf top on destination</strong></p>
-
-<p><img src="/images/posts/fun-ipset-iptables/run1-pt.png" height="800px" width="650px"></p>
+<figure><img src="/images/posts/fun-ipset-iptables/run1-pt.png" width="650px" height="800px"/>
+</figure>
 
 <p><strong>Number of sockets in use on destination</strong></p>
+<figure><img src="/images/posts/fun-ipset-iptables/run1-ss.png" width="650px" height="200px"/>
+</figure>
 
-<p><img src="/images/posts/fun-ipset-iptables/run1-ss.png" height="200px" width="650px"></p>
-
-<h3 id="run-2-1600-iptable-rules-on-destination-server">Run #2 - 1600+ IPTable rules on destination server</h3>
-
-<pre><code>[root@dst1 ~]# iptables -L -n | wc -l
+<h3 id="run-2---1600-iptable-rules-on-destination-server">Run #2 - 1600+ IPTable rules on destination server</h3>
+<pre tabindex="0"><code>[root@dst1 ~]# iptables -L -n | wc -l
 1616
-</code></pre>
-
-<p><strong>Vegeta Report</strong></p>
-
-<p><img src="/images/posts/fun-ipset-iptables/run2-vr.png" height="120px" width="650px"></p>
+</code></pre><p><strong>Vegeta Report</strong></p>
+<figure><img src="/images/posts/fun-ipset-iptables/run2-vr.png" width="650px" height="120px"/>
+</figure>
 
 <p>There&rsquo;s a definite uptick in 95th and 99th percentile latencies. We even had a timeout! The test can always be run for a much longer duration as well as multiple cycles to cater for outliers.</p>
-
 <p><strong>Perf top on destination</strong></p>
-
-<p><img src="/images/posts/fun-ipset-iptables/run2-pt.png" height="800px" width="650px"></p>
+<figure><img src="/images/posts/fun-ipset-iptables/run2-pt.png" width="650px" height="800px"/>
+</figure>
 
 <p>We are spending a fair amount of CPU cycles dealing with IPTables. In the next step, we replace these 1600 rules with a handful using IPSet.</p>
-
-<h3 id="run-3-ipset-rules-on-destination-server">Run #3 - IPset rules on destination server</h3>
-
-<p><img src="/images/posts/fun-ipset-iptables/run3-ipt.png" height="220px" width="650px"></p>
+<h3 id="run-3---ipset-rules-on-destination-server">Run #3 - IPset rules on destination server</h3>
+<figure><img src="/images/posts/fun-ipset-iptables/run3-ipt.png" width="650px" height="220px"/>
+</figure>
 
 <p><strong>Vegeta Report</strong></p>
-
-<p><img src="/images/posts/fun-ipset-iptables/run3-vr.png" height="120px" width="650px"></p>
+<figure><img src="/images/posts/fun-ipset-iptables/run3-vr.png" width="650px" height="120px"/>
+</figure>
 
 <p>No more timeouts. Latencies look similar to Run #1 without IP Filtering</p>
-
 <p><strong>Perf top on destination</strong></p>
-
-<p><img src="/images/posts/fun-ipset-iptables/run3-pt.png" height="800px" width="650px"></p>
+<figure><img src="/images/posts/fun-ipset-iptables/run3-pt.png" width="650px" height="800px"/>
+</figure>
 
 <p>That&rsquo;s right, <code>ipt_do_table</code> doesn&rsquo;t even show up!</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>IPSet can help simplify IPTables configuration as well boost performance under high load. A demo cookbook sets up two servers and performs a load test to illustrate the issue.</p>
 
     </div>
@@ -223,9 +179,7 @@
 
       <footer class="footer">
         <ul class="footer-links">
-          <li>
-            <a href="https://blog.manasg.com/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
+          
           <li>
             <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.manasg.com/images/hugo-logo.png" width="22" height="22"></a>
           </li>
@@ -235,16 +189,18 @@
     </div>
 
     
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-98684184-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-98684184-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-
   </body>
 </html>
 

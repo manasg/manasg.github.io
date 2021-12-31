@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.91.2" />
 
 
 <title>Achieving Common Ground - Manas Gupta</title>
 <meta property="og:title" content="Achieving Common Ground - Manas Gupta">
+
 
 
 
@@ -16,8 +17,7 @@
 
 
 
-
-
+<link rel="icon" href="https://blog.manasg.com/images/" type="image/x-icon"/>
 <link rel="stylesheet" href="https://blog.manasg.com/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
@@ -57,95 +57,55 @@
     
 
     <div class="article-content">
-      
-
-<p>What are some tools to help developers and operations achieve common ground?</p>
-
+      <p>What are some tools to help developers and operations achieve common ground?</p>
 <p>There are tools which can help, but it&rsquo;s more effective to work out the flow of information between the teams and use tools to facilitate the transfer.</p>
-
 <h2 id="dashboards-for-metrics">Dashboards for Metrics</h2>
-
 <p>Lets take a web service as an example. Begin with two to four metrics which are common and relevant across the teams</p>
-
 <ul>
 <li>rate of requests</li>
 <li>rate of error (http_code &gt; 499)</li>
 <li>latency</li>
 </ul>
-
 <p>They should be in an easy to remember location and available to everyone. Put them on a TV in the common space! Base your monitoring off it!</p>
-
 <p>It&rsquo;s easy to collaborate when you are looking and talking about the same thing.</p>
-
 <h2 id="access">Access</h2>
-
 <p>It starts with &ldquo;Trust&rdquo;</p>
-
 <blockquote>
 <p>I don&rsquo;t want to give access as they may cause an outage!</p>
 </blockquote>
-
 <p>I have heard variations of the above so many times. Why will &ldquo;they&rdquo; who are on the same team, intentionally bring your system down?</p>
-
 <p>Some of the smartest people I know have typed commands in wrong terminals :) Mistakes happen. But the &ldquo;system&rdquo; should be built to withstand small mistakes. You don&rsquo;t have to give sudo access to everyone. It&rsquo;s counter intuitive, but the system will become more secure over time as it forces a re-think of permissions.</p>
-
 <p>This recommendation is to help with a better <a href="https://twitter.com/search?q=%23opslife=">#opslife</a>. Depending on the size of your organization, you need to have proper security guidelines about this. I don&rsquo;t mean to imply that every employee should be able to SSH into all the systems. However if you are on the same team, working on the same service, you should have access.</p>
-
 <h2 id="bash-aliases">(Bash) Aliases</h2>
-
 <p>How many times you login to a system to check something and don&rsquo;t remember the full command? And the grep/awk/sed combo? You search your email/wiki/hipchat/evernote or worse ping somebody.</p>
-
 <p>Aliases to the rescue!</p>
-
 <p>What&rsquo;s the log directory? <code>cdl</code> =&gt; cd to the log directory (wherever it is)</p>
-
 <p>Where are HAProxy logs, I wanna tail them? <code>hap-tail-access</code></p>
-
 <p>How do I take this machine out of service? <code>oos</code>. And <code>bis</code> to bring it back.</p>
-
 <p>Compliment with a common prefix such as <code>orgname_</code>. This way you can ssh into a box, type <code>orgname_</code> and tab your way to see what&rsquo;s available.</p>
-
 <p>Of course there has to be some sanity to this. That&rsquo;s where your configuration management system comes into play, use it to keep track of all of these and update them when a path changes.</p>
-
 <p>This approach worked great for our teams as both devs and ops people were able to login and troubleshoot problems quickly without looking up the wiki!</p>
-
 <h2 id="logging">Logging</h2>
-
 <p>Instead of <code>Request Completed</code> strive for</p>
-
 <p><code>2017-05-06T05:32:28.9Z INFO: Request (fds12a) completed successfully for user (george)</code></p>
-
 <p>You can use json or any other key=value formatting for faster parsing/indexing.</p>
-
-<pre><code>{
+<pre tabindex="0"><code>{
 	&quot;t&quot;: &quot;2017-05-06T05:32:28.9Z&quot;,
 	&quot;l&quot;: &quot;INFO&quot;,
 	&quot;request_id&quot;: &quot;fds12a&quot;,
 	&quot;status&quot;: &quot;success&quot;,
 	&quot;user&quot;: &quot;george&quot;
 }
-</code></pre>
-
-<p>Shameless plug - hear me talk (&lt;5 min) about logging at <a href="https://vimeo.com/album/2573383/video/79377684">DevOpsDays 2013 NYC Fall</a>, <a href="https://www.slideshare.net/ngrep_q/5-manas-gupta-achieving-common-ground-via-logging">slides</a></p>
-
+</code></pre><p>Shameless plug - hear me talk (&lt;5 min) about logging at <a href="https://vimeo.com/album/2573383/video/79377684">DevOpsDays 2013 NYC Fall</a>, <a href="https://www.slideshare.net/ngrep_q/5-manas-gupta-achieving-common-ground-via-logging">slides</a></p>
 <p>Logs are a great way to achieve common ground between the authors and the operators of a system.</p>
-
-<h2 id="chatops-bots">ChatOps &amp; Bots</h2>
-
+<h2 id="chatops--bots">ChatOps &amp; Bots</h2>
 <p>Github made <a href="https://speakerdeck.com/jnewland/chatops-at-github">ChatOps</a> easy for everyone by open-sourcing <a href="https://hubot.github.com/">Hubot</a>.</p>
-
 <p>In addition to benefiting our dev and ops teams, our hubot instance helped our customer-support and product teams. Hubot took the concept of &lsquo;command aliases&rsquo; to the chat room. This expanded our collaboration with teams who did not have shell or api access to our systems but needed adhoc data (white listing in place to restrict who can run certain commands)</p>
-
 <h2 id="everything-should-have-a-rest-api">Everything should have a (REST) API</h2>
-
 <p>Never buy/adopt a tool which doesn&rsquo;t have a good API.</p>
-
 <p>Why have an API? Systems can be chained together with APIs thus breaking down information silos. As an example, what chef run-list and environment should be applied to a newly racked node. One could look up the documentation or I could make a CURL call during the provisioning phase of the system. We maintain a mapping of chef run-lists and environments in a git repo. A <a href="http://www.sinatrarb.com/">Sinatra</a> app makes it available to anyone.</p>
-
 <h2 id="a-caveat">A caveat</h2>
-
 <p>None of this works if &ldquo;the-right-culture&rdquo; and &ldquo;empathy&rdquo; are absent. Hopefully some of these ideas can serve as ice-breakers and get everybody moving in the right direction</p>
-
 <p>Use a tool which works for your organization. Maybe <em>DevOps 4.0 Professional Edition SP2</em> is what you need or maybe <code>bash</code> and having lunch together will do.</p>
 
     </div>
@@ -157,9 +117,7 @@
 
       <footer class="footer">
         <ul class="footer-links">
-          <li>
-            <a href="https://blog.manasg.com/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
+          
           <li>
             <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.manasg.com/images/hugo-logo.png" width="22" height="22"></a>
           </li>
@@ -169,16 +127,18 @@
     </div>
 
     
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-98684184-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-98684184-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-
   </body>
 </html>
 

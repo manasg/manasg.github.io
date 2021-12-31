@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Manas Gupta</title>
@@ -6,21 +6,16 @@
     <description>Recent content in Pages on Manas Gupta</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Mar 2017 21:39:11 -0800</lastBuildDate>
-    
-	<atom:link href="https://blog.manasg.com/page/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 30 Dec 2021 15:30:00 -0500</lastBuildDate><atom:link href="https://blog.manasg.com/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>about</title>
       <link>https://blog.manasg.com/about/</link>
-      <pubDate>Fri, 31 Mar 2017 21:39:11 -0800</pubDate>
+      <pubDate>Thu, 30 Dec 2021 15:30:00 -0500</pubDate>
       
       <guid>https://blog.manasg.com/about/</guid>
-      <description>My name is Manas Gupta. I am a Production Engineer at Facebook. Past jobs include - Yahoo!, Easilydo, Nuance.
-When I am not spending time with my wife and three kids, you can find me reading plot summaries for movies/tv-shows. I do read technical books without waiting for the spoilers.
-I have lived in a lot of places, but Montreal (Canada) can be considered home base.
-Need to reach me? hello@manasg.</description>
+      <description>My name is Manas Gupta. I am a Production Engineer at Meta Platforms (formerly Facebook). Past jobs include - Yahoo!, Easilydo, Nuance. I focus on various aspects of &amp;ldquo;running&amp;rdquo; production infrastructure.
+I live in Montreal (Canada) with my wife and three kids.
+Need to reach me? hello@manasg.com</description>
     </item>
     
   </channel>
