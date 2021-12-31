@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.91.2" />
 
 
 <title>ISP and DNS Injection - Manas Gupta</title>
 <meta property="og:title" content="ISP and DNS Injection - Manas Gupta">
+
 
 
 
@@ -16,8 +17,7 @@
 
 
 
-
-
+<link rel="icon" href="https://blog.manasg.com/images/" type="image/x-icon"/>
 <link rel="stylesheet" href="https://blog.manasg.com/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
@@ -57,41 +57,24 @@
     
 
     <div class="article-content">
-      
-
-<h1 id="a-case-of-non-existent-dns-entries-coming-to-life">A case of non-existent DNS entries coming to life</h1>
-
-<h3 id="blah-blah-exists">blah.blah exists?</h3>
-
-<pre><code>$ ping -c2 blah.blah
+      <h1 id="a-case-of-non-existent-dns-entries-coming-to-life">A case of non-existent DNS entries coming to life</h1>
+<h3 id="blahblah-exists">blah.blah exists?</h3>
+<pre tabindex="0"><code>$ ping -c2 blah.blah
 PING blah.blah (23.202.231.169) 56(84) bytes of data.
 64 bytes from a23-202-231-169.deploy.static.akamaitechnologies.com (23.202.231.169): icmp_seq=1 ttl=53 time=71.5 ms
-</code></pre>
-
-<p>I ran the above command on a whim on my new raspberry pi and was surprised by the result. That DNS entry does not exist. And neither does the tld. WTF?</p>
-
-<h3 id="what-about-fhdskfsdafs-google-com">What about fhdskfsdafs.google.com ?</h3>
-
+</code></pre><p>I ran the above command on a whim on my new raspberry pi and was surprised by the result. That DNS entry does not exist. And neither does the tld. WTF?</p>
+<h3 id="what-about-fhdskfsdafsgooglecom-">What about fhdskfsdafs.google.com ?</h3>
 <p>Let&rsquo;s try this <code>fhdskfsdafs.google.com</code></p>
-
-<pre><code>$ ping -c2 fhdskfsdafs.google.com
+<pre tabindex="0"><code>$ ping -c2 fhdskfsdafs.google.com
 PING fhdskfsdafs.google.com (23.217.138.110) 56(84) bytes of data.
 64 bytes from a23-217-138-110.deploy.static.akamaitechnologies.com (23.217.138.110): icmp_seq=1 ttl=58 time=6.94 ms
-</code></pre>
-
-<h3 id="huh-akamai">Huh? Akamai?</h3>
-
+</code></pre><h3 id="huh-akamai">Huh? Akamai?</h3>
 <p>Ok something is up! And why do I see akamai in there. I am sure Google has its own network. I fire up the browser on my macbook and I get Server Not Found; which is expected.</p>
-
 <h3 id="name-servers">Name Servers</h3>
-
 <p>So what&rsquo;s the difference between the pi and the macbook. Macbook is set to use <code>8.8.8.8</code> as the nameserver (set manually a long time ago) while the pi defaults to the home router which is a box provided by my ISP. I did change ISPs about a year ago.</p>
-
 <p>Here are a couple of runs with specific name servers.</p>
-
 <p><code>192.168.1.254</code> is the ISP box.</p>
-
-<pre><code>$ nslookup blah.blah 192.168.1.254
+<pre tabindex="0"><code>$ nslookup blah.blah 192.168.1.254
 Server:		192.168.1.254
 Address:	192.168.1.254#53
 
@@ -107,31 +90,20 @@ Server:		8.8.8.8
 Address:	8.8.8.8#53
 
 ** server can't find blah.blah: NXDOMAIN
-</code></pre>
-
-<h3 id="seriously">Seriously?</h3>
-
+</code></pre><h3 id="seriously">Seriously?</h3>
 <p>I remove the custom name servers from my macbook and load these <code>non-existent</code> pages. Guess what they load just fine and look like a scam page from the 90s. Note the missing encryption.</p>
-
-<p><img src="/images/posts/isp-dns-injection/blah.page.png" height="300px" width="650px"></p>
+<figure><img src="/images/posts/isp-dns-injection/blah.page.png" width="650px" height="300px"/>
+</figure>
 
 <p>My initial thought - my ISP&rsquo;s DNS is messed up, which is pretty bad. But no, this is worse. This was done intentionally. Look at the branding on that page. That&rsquo;s right I am with AT&amp;T (the only ones offering 1Gbps in San Jose, California)</p>
-
 <h3 id="i-am-not-alone">I am not alone</h3>
-
 <p>Some googling for <code>dns error assist</code> brings me to <a href="https://gist.github.com/CollinChaffin/24f6c9652efb3d6d5ef2f5502720ef00">https://gist.github.com/CollinChaffin/24f6c9652efb3d6d5ef2f5502720ef00</a></p>
-
 <p>Wow! Thank you <a href="https://gist.github.com/CollinChaffin">Colin</a></p>
-
 <p>I went through the steps and was able to opt-out of the service.</p>
-
 <h3 id="conclusion">Conclusion</h3>
-
 <p>I also tried to update the Name Servers used by the ISP&rsquo;s router. Turns out you can&rsquo;t! Ofcourse I can manually set the name servers on all the devices in the house; it gets tiring. Going forward; I need to get my own router and use the ISP modem in &ldquo;dumb&rdquo; mode.</p>
-
 <p>Before I wrap up, here&rsquo;s what curl would look like for these domains</p>
-
-<pre><code>$ curl -I http://blah.blah
+<pre tabindex="0"><code>$ curl -I http://blah.blah
 HTTP/1.1 200 OK
 Date: Thu, 18 Jun 2020 06:01:41 GMT
 Connection: close
@@ -139,9 +111,7 @@ Connection: close
 # atleast 443 gets a connection refused
 $ curl -I https://blah.blah
 curl: (7) Failed to connect to blah.blah port 443: Connection refused
-</code></pre>
-
-<p>Frankly, I am appalled at this; but not surprised at the same time. But thankfully HTTPs is becoming very common. And hopefully DNSSEC will be everywhere one day.</p>
+</code></pre><p>Frankly, I am appalled at this; but not surprised at the same time. But thankfully HTTPs is becoming very common. And hopefully DNSSEC will be everywhere one day.</p>
 
     </div>
   </article>
@@ -152,9 +122,7 @@ curl: (7) Failed to connect to blah.blah port 443: Connection refused
 
       <footer class="footer">
         <ul class="footer-links">
-          <li>
-            <a href="https://blog.manasg.com/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
+          
           <li>
             <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.manasg.com/images/hugo-logo.png" width="22" height="22"></a>
           </li>
@@ -164,16 +132,18 @@ curl: (7) Failed to connect to blah.blah port 443: Connection refused
     </div>
 
     
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-98684184-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-98684184-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-
   </body>
 </html>
 

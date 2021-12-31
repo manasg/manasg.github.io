@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.21" />
+<meta name="generator" content="Hugo 0.91.2" />
 
 
 <title>Runbooks As Code - Manas Gupta</title>
 <meta property="og:title" content="Runbooks As Code - Manas Gupta">
+
 
 
 
@@ -16,8 +17,7 @@
 
 
 
-
-
+<link rel="icon" href="https://blog.manasg.com/images/" type="image/x-icon"/>
 <link rel="stylesheet" href="https://blog.manasg.com/css/main.css" media="all">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400|Lato:400,400italic,700">
 
@@ -57,52 +57,29 @@
     
 
     <div class="article-content">
-      
-
-<blockquote>
+      <blockquote>
 <p>Here&rsquo;s the jar to run in prod and here&rsquo;s the pdf on troubleshooting it.</p>
 </blockquote>
-
 <p>This still happens in 2017. It may make sense if you are shipping software to run outside your organization. But in an online/SaaS environment, this falls apart after a couple of months.</p>
-
 <p>Here are some of our team&rsquo;s guidelines, whenever we bring new components online.</p>
-
 <h3 id="deployed-with-chef-no-exceptions">Deployed with Chef, no exceptions</h3>
-
 <p>Even if the chef cookbook is just a collection of <code>execute</code> directives. This adds the new server into our &ldquo;on-line&rdquo; inventory and is picked up by the monitoring system. It gets the correct security profiles and other org-wide base configurations.</p>
-
 <p>Any configuration management system - Puppet, Ansible - is fine too. I am biased towards Chef-Server due to my previous experiences and it&rsquo;s very good search capabilities - <code>knife search &quot;role:worker AND colo:en1&quot;</code></p>
-
 <h3 id="process-has-to-be-supervised">Process has to be supervised</h3>
-
 <p>The process running the application (java/node.js) has to be supervised with daemontools or runit or systemD. Everything crashes. The idea is to not debate code quality here. Having a supervisor reduces the impact of a process crash. And no manual intervention to bring it back up in the middle of the night. Other parts of the ops-stack will catch the crash and log it for later analysis.</p>
-
 <h3 id="alive">/alive</h3>
-
 <p>It it&rsquo;s a web-service, it should have an endpoint which can be used to check if it&rsquo;s &lsquo;up&rsquo;. I could use top and check the logs, but this is faster and can be done externally.</p>
-
 <h3 id="connected-with-self-healer-aka-boss">Connected with Self-Healer aka Boss</h3>
-
 <p>My colleague (Pierre Belanger) maintains the awesome boss utility. It runs as cron and checks the state of a process and attempts to heal it if needed. The healing is mostly a brutal restart, but it&rsquo;s very effective.</p>
-
 <p>For example, if your ruby process is running, but not listening on it&rsquo;s port, it will be restarted. If it doesn&rsquo;t respond to heartbeat in a given amount of time, it will be restarted.</p>
-
 <p>The boss utility is smart. It won&rsquo;t blindly start up things which have been intentionally stopped or mess up sequences during deploys. It sits between our monitoring system and the process-to-be-monitored. The boss will try to heal a bad process, and if it can&rsquo;t the monitoring system takes over and gets a human.</p>
-
 <h3 id="a-bundled-health-check-script">A bundled health check script</h3>
-
 <p>The script is tightly coupled with the application logic. Say you had a web-service which returned md5sum for a string. The script will do this all the time.</p>
-
 <p>The application developers own it, but the OpsTeam helps authoring the first few versions.</p>
-
 <p>Should the monitoring system do the health check? I don&rsquo;t like that approach. If the application logic changes, you need to make sure the release cycle is in-sync with the monitoring system. By bundling the checker with the runnable code itself, the release cycle dependency is gone. Also keeping the health check and healer closer to the process within the box makes monitoring more effective.</p>
-
 <h1 id="but-containers">But containers?</h1>
-
 <p>(Docker) containers with schedulers (Mesos/Swarm) can take care of some of these problems. They provide a different level of abstraction. For example instead of a process being restarted by cron, the Docker daemon would spin up a new container for a dead/non-responsive/un-healthy container.</p>
-
 <h1 id="conclusion">Conclusion</h1>
-
 <p>Runbooks in the SaaS world need to evolve to keep up with complexity and quick release cycles. A (markdown) doc should focus on the &lsquo;why&rsquo;, and the &lsquo;how&rsquo; should be handled with code.</p>
 
     </div>
@@ -114,9 +91,7 @@
 
       <footer class="footer">
         <ul class="footer-links">
-          <li>
-            <a href="https://blog.manasg.com/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
+          
           <li>
             <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="https://blog.manasg.com/images/hugo-logo.png" width="22" height="22"></a>
           </li>
@@ -126,16 +101,18 @@
     </div>
 
     
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-98684184-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-98684184-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-
   </body>
 </html>
 
